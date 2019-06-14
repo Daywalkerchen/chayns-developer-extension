@@ -1,0 +1,16 @@
+.configToggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .configToggle__left {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .configToggle__right {
+    text-align: right;
+    margin-left: 10px;
+  }
+}

@@ -1,0 +1,57 @@
+.chaynsDev__finder {
+
+  #finder__queryError {
+    text-align: center;
+    margin-top: 5px;
+    word-break: break-word;
+  }
+
+  input {
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+  }
+
+  .finder__entryWrapper {
+    overflow: hidden;
+
+    .finder__entry {
+      display: flex;
+      height: 60px;
+      justify-content: center;
+      align-items: center;
+
+      &:not(:last-of-type) {
+        border-width: 1px;
+        border-bottom-style: solid;
+      }
+
+      .finder__entry__img {
+        height: 45px;
+        width: 45px;
+        margin-right: 5px;
+        background-size: cover;
+        background-position: center;
+        outline: 1px solid rgba(0,0,0,.08);
+        flex-shrink: 0;
+      }
+
+      .finder__entry__info {
+        width: 100%;
+
+        .finder__entry__info--name {
+          margin-bottom: 5px;
+        }
+
+        .finder__entry__info--ids {
+          display: flex;
+
+          .copyText {
+            &:first-of-type {
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

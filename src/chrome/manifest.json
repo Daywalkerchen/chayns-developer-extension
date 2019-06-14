@@ -1,0 +1,36 @@
+{
+  "name": "chayns® Developer Menu",
+  "version": "1.0",
+  "manifest_version": 2,
+  "content_scripts": [
+    {
+      "js": [
+        "content.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "browser_action": {},
+  "icons": {
+    "32": "icons/32x32.png",
+    "64": "icons/64x64.png"
+  },
+  "content_security_policy": "script-src 'self'; object-src 'self'; style-src 'self'; style-src-elem 'self'",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "*://*/*",
+    "storage"
+  ],
+  "web_accessible_resources": [
+    "plugin.js"
+  ]
+}

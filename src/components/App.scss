@@ -1,0 +1,60 @@
+.chaynsDev-injectionRoot {
+  h2 {
+    text-align: center;
+    color: #fff;
+    padding: 0 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 1.2rem;
+    user-select: none;
+    margin-top: 10px;
+  }
+
+  b {
+    font-family: inherit;
+  }
+
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .contentWrapper {
+    padding: 20px;
+  }
+
+  .btnWrapper {
+    padding-top:  10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .centerMsg {
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .flexSplit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .flexSplit__left {
+      max-width: 55%;
+      overflow: hidden;
+    }
+
+    .flexSplit__right {
+      width: 40%;
+
+      p {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
