@@ -3,16 +3,18 @@ import ConfigToggle from './ConfigToggle/ConfigToggle';
 
 export default () => {
     const generalConfig = [
-        { key: 'defaultOpened', desc: 'Default Opened' },
+        { key: 'defaultOpened', desc: 'DefaultOpened' },
         { key: 'autoMute', desc: 'Mute Site' },
         { key: 'removeBGVideo', desc: 'Remove BackgroundVideo' },
-        { key: 'showTappBadges', desc: 'Attach TappIds' }
+        { key: 'showTappBadges', desc: 'Attach TappIds' },
+        { key: 'elevateTappsTapp', desc: 'Elevate TappsTapp' }
     ];
 
     const moduleConfig = [
         { key: 'showUserInfo', desc: 'Your Info' },
         { key: 'showSiteInfo', desc: 'Site Info' },
         { key: 'showShopInfo', desc: 'Shop Info' },
+        { key: 'showLoremIpsum', desc: 'Lorem Ipsum' },
         { key: 'showFinder', desc: 'Finder' }
     ];
 

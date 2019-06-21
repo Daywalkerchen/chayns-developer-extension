@@ -39,6 +39,7 @@ export default () => {
             <h2 className="chayns__background-color">
                 Shop Info
             </h2>
+            {/* eslint-disable-next-line no-nested-ternary */}
             {isLoading ? (
                 <p className="centerMsg">Loading...</p>
             ) : (
