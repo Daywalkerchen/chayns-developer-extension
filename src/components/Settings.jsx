@@ -6,8 +6,8 @@ export default () => {
         { key: 'defaultOpened', desc: 'DefaultOpened' },
         { key: 'autoMute', desc: 'Mute Site' },
         { key: 'removeBGVideo', desc: 'Remove BackgroundVideo' },
-        { key: 'showTappBadges', desc: 'Attach TappIds' },
-        { key: 'elevateTappsTapp', desc: 'Elevate TappsTapp' }
+        { key: 'removeMobileInfo', desc: 'Remove MobileInfo' },
+        { key: 'showTappBadges', desc: 'Attach TappIds' }
     ];
 
     const moduleConfig = [

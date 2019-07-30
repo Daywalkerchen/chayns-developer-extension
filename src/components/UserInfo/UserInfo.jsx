@@ -46,7 +46,7 @@ export default () => {
                         <button
                             type="button"
                             className="button"
-                            onClick={() => chayns.logout(1)}
+                            onClick={() => chayns.logout()}
                         >
                             Logout
                         </button>
@@ -61,7 +61,7 @@ export default () => {
                         <button
                             type="button"
                             className="button"
-                            onClick={chayns.login}
+                            onClick={() => chayns.login()}
                         >
                             Login
                         </button>

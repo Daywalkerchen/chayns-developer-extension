@@ -1,25 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
-
-import V1Injector from './injections/ChaynsWebV1/injector';
-import V2Injector from './injections/ChaynsWebV2/injector';
-
-const init = async () => {
-    await chayns.ready;
-
-    const injectionRoot = document.createElement('div');
-    injectionRoot.className = 'chaynsDev-injectionRoot';
-    document.body.appendChild(injectionRoot);
-    ReactDOM.render(<App />, injectionRoot);
-
-    if (document.getElementById('cw')) {
-        V2Injector();
-    } else {
-        V1Injector();
-    }
-};
+import inject from './injections/injector';
 
 if (window.chayns) {
-    init();
+    chayns.ready
+        .then(() => {
+            inject();
+            const injectionRoot = document.createElement('div');
+            injectionRoot.className = 'chaynsDev-injectionRoot';
+            document.body.appendChild(injectionRoot);
+            ReactDOM.render(<App />, injectionRoot);
+        })
+        .catch((e) => {
+            console.error('Plugin injection aborted. No chayns-Environment found', e);
+        });
 }

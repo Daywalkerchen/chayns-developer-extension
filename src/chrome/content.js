@@ -21,14 +21,14 @@ const settingKeys = [
     { key: 'defaultOpened', _default: false },
     { key: 'autoMute', _default: true },
     { key: 'removeBGVideo', _default: true },
-    { key: 'elevateTappsTapp', _default: true },
     { key: 'dockSize', _default: 0.25 },
     { key: 'showTappBadges', _default: true },
     { key: 'showUserInfo', _default: true },
     { key: 'showSiteInfo', _default: true },
-    { key: 'showShopInfo', _default: true },
-    { key: 'showLoremIpsum', _default: true },
-    { key: 'showFinder', _default: true }
+    { key: 'showShopInfo', _default: false },
+    { key: 'showLoremIpsum', _default: false },
+    { key: 'showFinder', _default: true },
+    { key: 'removeMobileInfo', _default: true }
 ];
 
 const initializePlugin = () => {

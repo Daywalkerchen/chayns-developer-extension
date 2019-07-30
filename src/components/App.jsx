@@ -8,9 +8,7 @@ import './App.scss';
 export default class App extends Component {
     state = {
         showDock: window.chaynsDevSettings.defaultOpened,
-        showConfig: false,
-        lastUserId: chayns.env.user.id,
-        lastTappId: chayns.env.site.tapp.id
+        showConfig: false
     };
 
     componentDidMount = () => {
@@ -18,26 +16,32 @@ export default class App extends Component {
         const { addAccessTokenChangeListener } = chayns;
         if (addAccessTokenChangeListener) {
             addAccessTokenChangeListener(() => {
-                const { lastUserId } = this.state;
-                const currentUserId = chayns.env.user.id;
-                if (lastUserId !== currentUserId) {
-                    this.setState({ lastUserId: currentUserId });
-                }
+                this.forceUpdate();
             });
         }
 
         // Tapp-Change Handling
-        window.addEventListener('message', (msg) => {
-            if (msg && typeof msg.data === 'string' && msg.data.startsWith('chayns.ajaxTab')) {
-                setTimeout(() => {
-                    const { lastTappId } = this.state;
-                    const currentTappId = chayns.env.site.tapp.id;
-                    if (currentTappId !== lastTappId) {
-                        this.setState({ lastTappId: currentTappId });
+        const tappWrapper = document.querySelector('.cw-tapp');
+        if (tappWrapper) {
+            tappWrapper.addEventListener(
+                'DOMNodeInserted',
+                ({ path }) => {
+                    const [nextTapp] = path;
+                    if (nextTapp) {
+                        let nextTappId = 0;
+                        if (nextTapp.nodeName === 'IFRAME') {
+                            nextTappId = +((nextTapp.src.match('TappID=[0-9]*')[0]).replace('TappID=', ''));
+                        } else if (nextTapp.nodeName === 'DIV' && nextTapp.classList.contains('cw-div-tapp')) {
+                            nextTappId = +(Array.from(nextTapp.children)[0].id.replace('TappDiv_', ''));
+                        }
+                        if (nextTappId) {
+                            chayns.env.site.tapp.id = nextTappId;
+                            this.forceUpdate();
+                        }
                     }
-                }, 500);
-            }
-        }, false);
+                }
+            );
+        }
 
         // Global-Func to toggle dock-visibility
         window.chaynsDevToggle = this.toggleDockVisibility;
@@ -54,16 +58,16 @@ export default class App extends Component {
     };
 
     handleDockSize = (newSize) => {
-      clearTimeout(this.resizeTimeout);
-      this.resizeTimeout = setTimeout(() => {
-          document.dispatchEvent(new CustomEvent(
-              'UPDATE_SETTING',
-              {
-                  // eslint-disable-next-line no-nested-ternary
-                  detail: { dockSize: newSize < 0 ? 0 : newSize > 1 ? 1 : newSize }
-              }
-          ));
-      }, 500);
+        clearTimeout(this.resizeTimeout);
+        this.resizeTimeout = setTimeout(() => {
+            document.dispatchEvent(new CustomEvent(
+                'UPDATE_SETTING',
+                {
+                    // eslint-disable-next-line no-nested-ternary
+                    detail: { dockSize: newSize < 0 ? 0 : newSize > 1 ? 1 : newSize }
+                }
+            ));
+        }, 500);
     };
 
     render = () => {
@@ -90,7 +94,7 @@ export default class App extends Component {
                     />
                     {showConfig
                         ? <Settings/>
-                        : <Modules />}
+                        : <Modules/>}
                 </div>
             </Dock>
         );
