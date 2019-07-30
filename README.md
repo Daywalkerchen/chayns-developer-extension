@@ -38,6 +38,9 @@ These features directly modify the webpage. They occur once, after the initial p
 
 ## Installation ##
 
+A build version is available under `Q:\LFester\chaynsDev`.
+Proceed with step `5-9` when using this version.
+
 To use the extension, you need to build the project:
 
 1. Clone the project 
