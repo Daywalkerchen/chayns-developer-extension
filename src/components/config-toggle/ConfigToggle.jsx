@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
-import './ConfigToggle.scss';
+import './config.toggle.scss';
 
 export default ({
     configDesc,
-    configKey
+    configKey,
 }) => {
     const [currentValue, setCurrentValue] = useState(window.chaynsDevSettings[configKey]);
     const [inputId] = useState(Math.random());
+
     const handleConfigChange = () => {
         const newValue = !currentValue;
+
         setCurrentValue(newValue);
+
         document.dispatchEvent(new CustomEvent(
             'UPDATE_SETTING',
             {
-                detail: { [configKey]: newValue }
-            }
+                detail: { [configKey]: newValue },
+            },
         ));
     };
+
     return (
         <div className="configToggle">
             <div className="configToggle__left">

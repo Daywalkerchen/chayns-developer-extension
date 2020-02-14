@@ -1,6 +1,8 @@
 import React from 'react';
+
 import { FaTimes, FaCog } from 'react-icons/fa';
-import './ActionBar.scss';
+
+import './action.bar.scss';
 
 export default ({ onHide, onConfigure }) => (
     <div className="chaynsDev__actionbar">

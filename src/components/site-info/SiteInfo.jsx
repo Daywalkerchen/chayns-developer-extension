@@ -1,13 +1,15 @@
 import React from 'react';
-import CopyText from '../CopyText/CopyText';
+
+import CopyText from '../copy-text/CopyText';
 
 export default () => {
     const {
         locationId,
         id,
         locationPersonId,
-        tapp
+        tapp,
     } = chayns.env.site;
+
     return (
         <div className="chaynsDev__siteInfo">
             <h2 className="chayns__background-color">

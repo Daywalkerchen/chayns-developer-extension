@@ -1,9 +1,20 @@
 import webpack from 'webpack';
+
 import CopyPlugin from 'copy-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
+
 import getBaseConfig from './base-config';
 
 export default {
     ...getBaseConfig(false),
+    devtool: 'none',
+    mode: 'production',
+    optimization: {
+        minimizer: [new TerserPlugin({
+            sourceMap: false,
+            parallel: true,
+        })],
+    },
     plugins: [
         new webpack.DefinePlugin({
             __DEV__: false,
@@ -13,7 +24,7 @@ export default {
         new CopyPlugin([{
             from: 'src/chrome/',
             to: './',
-            context: './'
-        }])
-    ]
+            context: './',
+        }]),
+    ],
 };

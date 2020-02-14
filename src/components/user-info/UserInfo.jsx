@@ -1,13 +1,14 @@
-import React, { Fragment } from 'react';
-import CopyText from '../CopyText/CopyText';
+import React from 'react';
+import CopyText from '../copy-text/CopyText';
 
 export default () => {
     const {
         id,
         personId,
         tobitAccessToken,
-        isAuthenticated
+        isAuthenticated,
     } = chayns.env.user;
+
     return (
         <div
             key={id}
@@ -17,7 +18,7 @@ export default () => {
                 Your Info
             </h2>
             {isAuthenticated ? (
-                <Fragment>
+                <>
                     <div className="flexSplit">
                         <div className="flexSplit__left">
                             <p>UserId</p>
@@ -51,9 +52,9 @@ export default () => {
                             Logout
                         </button>
                     </div>
-                </Fragment>
+                </>
             ) : (
-                <Fragment>
+                <>
                     <p className="centerMsg">
                         You are not logged in
                     </p>
@@ -66,7 +67,7 @@ export default () => {
                             Login
                         </button>
                     </div>
-                </Fragment>
+                </>
             )}
         </div>
     );

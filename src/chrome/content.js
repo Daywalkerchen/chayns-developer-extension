@@ -2,7 +2,9 @@
 const injectFile = (fileName) => {
     const script = document.createElement('script');
     script.src = chrome.extension.getURL(fileName);
+
     (document.head || document.documentElement).appendChild(script);
+
     script.onload = () => {
         script.parentNode.removeChild(script);
     };
@@ -11,7 +13,9 @@ const injectFile = (fileName) => {
 const injectFunc = (fn) => {
     const script = document.createElement('script');
     script.text = `(${fn.toString()})();`;
+
     (document.head || document.documentElement).appendChild(script);
+
     script.parentNode.removeChild(script);
 };
 // -- End of injection funcs --
@@ -28,7 +32,7 @@ const settingKeys = [
     { key: 'showShopInfo', _default: false },
     { key: 'showLoremIpsum', _default: false },
     { key: 'showFinder', _default: true },
-    { key: 'removeMobileInfo', _default: true }
+    { key: 'removeMobileInfo', _default: true },
 ];
 
 const initializePlugin = () => {
@@ -48,7 +52,7 @@ const initializePlugin = () => {
         'UPDATE_SETTING',
         ({ detail }) => {
             chrome.storage.sync.set({ ...detail });
-        }
+        },
     );
 
     // Inject current settings to window
@@ -56,29 +60,33 @@ const initializePlugin = () => {
         settingKeys.map(({ key }) => key),
         (storageConfig) => {
             const pluginConfig = {};
+
             settingKeys.forEach(({ key, _default }) => {
                 pluginConfig[key] = _default;
             });
+
             Object.keys(storageConfig).forEach((key) => {
                 if (storageConfig[key] !== undefined) {
                     pluginConfig[key] = storageConfig[key];
                 }
             });
+
             injectFunc(() => {
                 document.addEventListener(
                     'INJECT_WINDOW',
                     ({ detail }) => {
                         window.chaynsDevSettings = detail;
-                    }
+                    },
                 );
             });
+
             document.dispatchEvent(new CustomEvent(
                 'INJECT_WINDOW',
                 {
-                    detail: pluginConfig
-                }
+                    detail: pluginConfig,
+                },
             ));
-        }
+        },
     );
 
     // Render Dock to DOM

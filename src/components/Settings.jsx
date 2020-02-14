@@ -1,5 +1,6 @@
 import React from 'react';
-import ConfigToggle from './ConfigToggle/ConfigToggle';
+
+import ConfigToggle from './config-toggle/ConfigToggle';
 
 export default () => {
     const generalConfig = [
@@ -7,7 +8,7 @@ export default () => {
         { key: 'autoMute', desc: 'Mute Site' },
         { key: 'removeBGVideo', desc: 'Remove BackgroundVideo' },
         { key: 'removeMobileInfo', desc: 'Remove MobileInfo' },
-        { key: 'showTappBadges', desc: 'Attach TappIds' }
+        { key: 'showTappBadges', desc: 'Attach TappIds' },
     ];
 
     const moduleConfig = [
@@ -15,10 +16,10 @@ export default () => {
         { key: 'showSiteInfo', desc: 'Site Info' },
         { key: 'showShopInfo', desc: 'Shop Info' },
         { key: 'showLoremIpsum', desc: 'Lorem Ipsum' },
-        { key: 'showFinder', desc: 'Finder' }
+        { key: 'showFinder', desc: 'Finder' },
     ];
 
-    const renderConfig = config => config.map(({ desc, key }) => (
+    const renderConfig = (config) => config.map(({ desc, key }) => (
         <ConfigToggle
             configDesc={desc}
             configKey={key}
@@ -29,7 +30,11 @@ export default () => {
     return (
         <div className="chaynsDev__settings">
             <h2 className="chayns__background-color">Configuration</h2>
-            <p><b>Notice:</b> Changes are active after reloading.</p>
+            <p>
+                <b>Notice:</b>
+                {' '}
+                Changes are active after reloading.
+            </p>
             <div className="btnWrapper">
                 <button
                     type="button"

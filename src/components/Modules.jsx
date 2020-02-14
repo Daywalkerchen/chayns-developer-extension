@@ -1,9 +1,10 @@
 import React from 'react';
-import UserInfo from './UserInfo/UserInfo';
-import SiteInfo from './SiteInfo/SiteInfo';
-import ShopInfo from './ShopInfo/ShopInfo';
-import LoremIpsum from './LoremIpsum/LoremIpsum';
-import Finder from './Finder/Finder';
+
+import UserInfo from './user-info/UserInfo';
+import SiteInfo from './site-info/SiteInfo';
+import ShopInfo from './shop-info/ShopInfo';
+import LoremIpsum from './lorem-ipsum/LoremIpsum';
+import Finder from './person-finder/PersonFinder';
 
 export default () => {
     const {
@@ -11,14 +12,15 @@ export default () => {
         showSiteInfo,
         showShopInfo,
         showLoremIpsum,
-        showFinder
+        showFinder,
     } = window.chaynsDevSettings;
+
     return (
         <div className="chaynsDev__modules">
             {showUserInfo && <UserInfo/>}
             {showSiteInfo && <SiteInfo/>}
             {showShopInfo && <ShopInfo/>}
-            {showLoremIpsum && <LoremIpsum />}
+            {showLoremIpsum && <LoremIpsum/>}
             {showFinder && <Finder/>}
         </div>
     );

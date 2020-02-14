@@ -1,15 +1,25 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Dock from 'react-dock';
-import ActionBar from './ActionBar/ActionBar';
+
 import Modules from './Modules';
 import Settings from './Settings';
+import ActionBar from './action-bar/ActionBar';
+
 import './App.scss';
 
-export default class App extends Component {
-    state = {
-        showDock: window.chaynsDevSettings.defaultOpened,
-        showConfig: false
-    };
+const DOCK_STYLE = {
+    backgroundColor: 'rgba(255,255,255,0.8)',
+};
+
+export default class App extends PureComponent {
+    constructor(props) {
+        super();
+
+        this.state = {
+            showConfig: false,
+            showDock: window.chaynsDevSettings.defaultOpened,
+        };
+    }
 
     componentDidMount = () => {
         // Login Handling
@@ -47,7 +57,7 @@ export default class App extends Component {
                             this.forceUpdate();
                         }
                     }
-                }
+                },
             );
         }
 
@@ -72,8 +82,8 @@ export default class App extends Component {
                 'UPDATE_SETTING',
                 {
                     // eslint-disable-next-line no-nested-ternary
-                    detail: { dockSize: newSize < 0 ? 0 : newSize > 1 ? 1 : newSize }
-                }
+                    detail: { dockSize: newSize < 0 ? 0 : newSize > 1 ? 1 : newSize },
+                },
             ));
         }, 500);
     };
@@ -81,19 +91,17 @@ export default class App extends Component {
     render = () => {
         const {
             showDock,
-            showConfig
+            showConfig,
         } = this.state;
         return (
             <Dock
-                position="right"
-                dimMode="none"
-                dockStyle={{
-                    backgroundColor: 'rgba(255,255,255,0.8)'
-                }}
-                defaultSize={window.chaynsDevSettings.dockSize}
                 defaultOpen
+                dimMode="none"
+                position="right"
                 isVisible={showDock}
+                dockStyle={DOCK_STYLE}
                 onSizeChange={this.handleDockSize}
+                defaultSize={window.chaynsDevSettings.dockSize}
             >
                 <div className="contentWrapper">
                     <ActionBar
@@ -101,8 +109,8 @@ export default class App extends Component {
                         onConfigure={this.toggleConfigView}
                     />
                     {showConfig
-                        ? <Settings />
-                        : <Modules />}
+                        ? <Settings/>
+                        : <Modules/>}
                 </div>
             </Dock>
         );

@@ -1,7 +1,7 @@
 import addInlineTappIds from './features/addInlineTappIds';
-import removeBackgroundVideo from './features/removeBackgroundVideo';
-import muteBackgroundSound from './features/muteBackgroundSound';
 import removeMobileModeInfo from './features/removeMobileInfo';
+import muteBackgroundSound from './features/muteBackgroundSound';
+import removeBackgroundVideo from './features/removeBackgroundVideo';
 
 export default () => {
     if (!window.chaynsDevSettings) return;
@@ -10,11 +10,22 @@ export default () => {
         autoMute,
         removeBGVideo,
         showTappBadges,
-        removeMobileInfo
+        removeMobileInfo,
     } = window.chaynsDevSettings;
 
-    if (autoMute) muteBackgroundSound();
-    if (removeBGVideo) removeBackgroundVideo();
-    if (showTappBadges) addInlineTappIds();
-    if (removeMobileInfo) removeMobileModeInfo();
+    if (autoMute) {
+        muteBackgroundSound();
+    }
+
+    if (removeBGVideo) {
+        removeBackgroundVideo();
+    }
+
+    if (showTappBadges) {
+        addInlineTappIds();
+    }
+
+    if (removeMobileInfo) {
+        removeMobileModeInfo();
+    }
 };

@@ -1,16 +1,16 @@
 import React, {
     useState,
     useEffect,
-    useRef
+    useRef,
 } from 'react';
-import CopyText from '../CopyText/CopyText';
-import './Finder.scss';
+import CopyText from '../copy-text/CopyText';
+import './person-finder.scss';
 
 export default () => {
     const QUERYTYPES = {
         USERID: 'UserId',
         PERSONID: 'PersonId',
-        USERNAME: 'Username'
+        USERNAME: 'Username',
     };
     const [isLoading, setIsLoading] = useState(false);
     const [query, setQuery] = useState('');
@@ -26,8 +26,10 @@ export default () => {
             const newQueryResult = {};
             const containsUserId = query.match(regUserId);
             const containsPersonId = query.match(regPersonId);
+
             if (containsUserId || containsPersonId) {
                 const queryConfig = {};
+
                 if (containsUserId) {
                     queryConfig.userId = parseInt(query, 10);
                     newQueryResult.type = QUERYTYPES.USERID;
@@ -35,27 +37,36 @@ export default () => {
                     queryConfig.personId = query;
                     newQueryResult.type = QUERYTYPES.PERSONID;
                 }
+
                 const user = await chayns.getUser(queryConfig);
+
                 if (user && !user.Error) {
                     const result = {
                         ...queryConfig,
-                        name: user.UserFullName
+                        name: user.UserFullName,
                     };
+
                     if (user.UserID && !result.userId) {
                         result.userId = user.UserID;
                     }
+
                     if (user.PersonID && !result.personId) {
                         result.personId = user.PersonID;
                     }
+
                     newQueryResult.data = [result];
                 }
             } else if (query.trim()) {
                 const { Value } = await chayns.findPerson(query);
+
                 newQueryResult.type = QUERYTYPES.USERNAME;
                 newQueryResult.data = Value;
             }
+
             setQueryResult(newQueryResult);
+
             setIsLoading(false);
+
             clearTimeout(isLoadingTimeout);
         }, 200);
     }, [query]);
@@ -69,13 +80,13 @@ export default () => {
                 className="input"
                 style={{ width: '100%' }}
                 placeholder="UserId, PersonId or Username"
-                onChange={e => setQuery(e.target.value || '')}
+                onChange={(e) => setQuery(e.target.value || '')}
             />
             {isLoading
                 ? <p className="centerMsg">Loading...</p>
                 : (queryResult.data && queryResult.data.length > 0) ? (
                     <div className="finder__entryWrapper">
-                        {queryResult.data.map(user => (
+                        {queryResult.data.map((user) => (
                             <div className="finder__entry chayns__border-color">
                                 <div
                                     className="finder__entry__img"
@@ -95,7 +106,13 @@ export default () => {
                     </div>
                 ) : (queryResult.type && (
                     <p id="finder__queryError">
-                        No user with <b>{queryResult.type}</b> &apos;{query}&apos; found.
+                        No user with
+                        {' '}
+                        <b>{queryResult.type}</b>
+                        {' '}
+                        &apos;
+                        {query}
+                        &apos; found.
                     </p>
                 ))}
         </div>

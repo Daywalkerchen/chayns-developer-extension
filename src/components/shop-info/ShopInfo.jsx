@@ -1,9 +1,9 @@
 import React, {
     useState,
     useEffect,
-    Fragment
+    Fragment,
 } from 'react';
-import CopyText from '../CopyText/CopyText';
+import CopyText from '../copy-text/CopyText';
 
 export default () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -15,7 +15,7 @@ export default () => {
                 setShopData({
                     branchId: msg.data.data.branchId,
                     shopToken: msg.data.data.accessToken,
-                    tappId: chayns.env.site.tapp.id
+                    tappId: chayns.env.site.tapp.id,
                 });
             }
         }, false);
@@ -44,7 +44,7 @@ export default () => {
                 <p className="centerMsg">Loading...</p>
             ) : (
                 shopData ? (
-                    <Fragment>
+                    <>
                         <div className="flexSplit">
                             <div className="flexSplit__left">
                                 <p>BranchId</p>
@@ -61,7 +61,7 @@ export default () => {
                                 <CopyText content={shopData.shopToken}/>
                             </div>
                         </div>
-                    </Fragment>
+                    </>
                 ) : <p className="centerMsg">No Shop found</p>
             )}
         </div>

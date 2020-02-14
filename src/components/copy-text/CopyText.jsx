@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import copyToClipboard from '../../utils/copyToClipboard';
-import './CopyText.scss';
+import './copy-text.scss';
 
 export default ({ content }) => {
     const stringContent = `${content || ''}`.trim();

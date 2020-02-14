@@ -4,7 +4,9 @@ const $ = (query, root = document) => Array.from(root.querySelectorAll(query));
 
 const addTappId = (navItem) => {
     const hasDevEl = $('.chaynsDev-InlineID', navItem).length > 0;
-    const tappIdAtr = Array.from(navItem.attributes).find(atr => atr.nodeName === 'data-tappid');
+
+    const tappIdAtr = Array.from(navItem.attributes).find((atr) => atr.nodeName === 'data-tappid');
+
     if (!tappIdAtr || hasDevEl) return;
 
     /* eslint-disable no-param-reassign */
@@ -12,6 +14,7 @@ const addTappId = (navItem) => {
     navItem.style.paddingRight = '55px';
 
     const tappId = tappIdAtr.nodeValue;
+
     const p = document.createElement('p');
     p.innerHTML = tappId;
     p.className = 'chaynsDev-InlineID chayns__color--text';
@@ -31,9 +34,11 @@ const addTappId = (navItem) => {
         e.stopPropagation();
         copyToClipBoard(tappId);
     };
+
     p.onmouseover = () => {
         p.style.opacity = '0.6';
     };
+
     p.onmouseout = () => {
         p.style.opacity = '1';
     };
@@ -45,39 +50,51 @@ const addRecursiveListeners = (root) => {
     const traverse = () => {
         setTimeout(() => {
             $('.cw-item', root).forEach(addTappId);
+
             $('.tappGroup', root).forEach(addRecursiveListeners);
         }, 200);
+
         root.removeEventListener('click', traverse);
     };
-    root.addEventListener('click', traverse);
-};
 
-const addTappIds = (root) => {
-    if (!root) return;
-    let addAfterExclusiveExit = true;
-    let addAfterExclusiveEnter = true;
-    $('.cw-item', root).forEach((item) => {
-        addTappId(item);
-        item.addEventListener('click', () => {
-            if (addAfterExclusiveExit) {
-                setTimeout(addNavListener, 200);
-                addAfterExclusiveExit = false;
-            }
-            if (addAfterExclusiveEnter) {
-                setTimeout(addNavButtonListener, 200);
-                addAfterExclusiveEnter = false;
-            }
-        });
-    });
-    $('.tappGroup', root).forEach(addRecursiveListeners);
+    root.addEventListener('click', traverse);
 };
 
 const addNavButtonListener = (el) => {
     const nextRoot = el || document.querySelector('.cw-nav-button');
-    if (!nextRoot) return;
-    nextRoot.addEventListener('click', () => {
-        setTimeout(() => addTappIds(document.querySelector('.cw-navigation')), 200);
+
+    if (nextRoot) {
+        nextRoot.addEventListener('click', () => {
+            setTimeout(() => addTappIds(document.querySelector('.cw-navigation')), 200);
+        });
+    }
+};
+
+const addTappIds = (root) => {
+    if (!root) return;
+
+    let addAfterExclusiveExit = true;
+    let addAfterExclusiveEnter = true;
+
+    $('.cw-item', root).forEach((item) => {
+        addTappId(item);
+
+        item.addEventListener('click', () => {
+            if (addAfterExclusiveExit) {
+                setTimeout(addNavListener, 200);
+
+                addAfterExclusiveExit = false;
+            }
+
+            if (addAfterExclusiveEnter) {
+                setTimeout(addNavButtonListener, 200);
+
+                addAfterExclusiveEnter = false;
+            }
+        });
     });
+
+    $('.tappGroup', root).forEach(addRecursiveListeners);
 };
 
 const addNavListener = () => {
@@ -86,6 +103,7 @@ const addNavListener = () => {
 
 export default () => {
     const exclusiveNav = document.querySelector('.cw-nav-button');
+
     if (exclusiveNav) {
         addNavButtonListener(exclusiveNav);
     } else {
