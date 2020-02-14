@@ -14,7 +14,7 @@ export default () => {
     const moduleConfig = [
         { key: 'showUserInfo', desc: 'Your Info' },
         { key: 'showSiteInfo', desc: 'Site Info' },
-        { key: 'showFinder', desc: 'Finder' },
+        { key: 'showFinder', desc: 'Person Finder' },
     ];
 
     const renderConfig = (config) => config.map(({ desc, key }) => (

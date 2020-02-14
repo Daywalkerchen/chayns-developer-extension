@@ -1,31 +1,40 @@
 import React, {
+    memo,
+    useRef,
     useState,
     useEffect,
-    useRef,
 } from 'react';
+
 import CopyText from '../copy-text/CopyText';
+
 import './person-finder.scss';
 
-export default () => {
-    const QUERYTYPES = {
-        USERID: 'UserId',
-        PERSONID: 'PersonId',
-        USERNAME: 'Username',
-    };
-    const [isLoading, setIsLoading] = useState(false);
-    const [query, setQuery] = useState('');
-    const [queryResult, setQueryResult] = useState({});
+const QUERYTYPES = {
+    USERID: 'UserId',
+    PERSONID: 'PersonId',
+    USERNAME: 'Username',
+};
+
+const regUserId = '^[0-9]+$';
+const regPersonId = '^[0-9]{3}-[0-9]{5}$';
+
+const PersonFinder = () => {
     const timeoutId = useRef(0);
-    const regUserId = '^[0-9]+$';
-    const regPersonId = '^[0-9]{3}-[0-9]{5}$';
+
+    const [query, setQuery] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [queryResult, setQueryResult] = useState({});
 
     useEffect(() => {
         clearTimeout(timeoutId.current);
+
         timeoutId.current = setTimeout(async () => {
             const isLoadingTimeout = setTimeout(() => setIsLoading(true), 200);
-            const newQueryResult = {};
+
             const containsUserId = query.match(regUserId);
             const containsPersonId = query.match(regPersonId);
+
+            const newQueryResult = {};
 
             if (containsUserId || containsPersonId) {
                 const queryConfig = {};
@@ -74,7 +83,7 @@ export default () => {
     return (
         <div className="chaynsDev__finder">
             <h2 className="chayns__background-color">
-                Finder
+                Person Finder
             </h2>
             <input
                 className="input"
@@ -118,3 +127,5 @@ export default () => {
         </div>
     );
 };
+
+export default memo(PersonFinder);
