@@ -14,7 +14,6 @@ export default () => {
     const moduleConfig = [
         { key: 'showUserInfo', desc: 'Your Info' },
         { key: 'showSiteInfo', desc: 'Site Info' },
-        { key: 'showLoremIpsum', desc: 'Lorem Ipsum' },
         { key: 'showFinder', desc: 'Finder' },
     ];
 
