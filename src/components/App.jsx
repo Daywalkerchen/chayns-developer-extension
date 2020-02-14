@@ -27,15 +27,23 @@ export default class App extends Component {
                 'DOMNodeInserted',
                 ({ path }) => {
                     const [nextTapp] = path;
+
                     if (nextTapp) {
                         let nextTappId = 0;
+
                         if (nextTapp.nodeName === 'IFRAME') {
-                            nextTappId = +((nextTapp.src.match('TappID=[0-9]*')[0]).replace('TappID=', ''));
+                            const tappElements = nextTapp.src.match('TappID=[0-9]*');
+
+                            if (tappElements) {
+                                nextTappId = +tappElements[0].replace('TappID=', '');
+                            }
                         } else if (nextTapp.nodeName === 'DIV' && nextTapp.classList.contains('cw-div-tapp')) {
                             nextTappId = +(Array.from(nextTapp.children)[0].id.replace('TappDiv_', ''));
                         }
+
                         if (nextTappId) {
                             chayns.env.site.tapp.id = nextTappId;
+
                             this.forceUpdate();
                         }
                     }
@@ -93,8 +101,8 @@ export default class App extends Component {
                         onConfigure={this.toggleConfigView}
                     />
                     {showConfig
-                        ? <Settings/>
-                        : <Modules/>}
+                        ? <Settings />
+                        : <Modules />}
                 </div>
             </Dock>
         );
