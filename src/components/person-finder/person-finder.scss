@@ -1,8 +1,8 @@
-.chaynsDev__finder {
+.chayns-dev__finder {
 
   #finder__queryError {
-    text-align: center;
     margin-top: 5px;
+    text-align: center;
     word-break: break-word;
   }
 
@@ -15,10 +15,10 @@
     overflow: hidden;
 
     .finder__entry {
-      display: flex;
       height: 60px;
-      justify-content: center;
+      display: flex;
       align-items: center;
+      justify-content: center;
 
       &:not(:last-of-type) {
         border-width: 1px;
@@ -26,13 +26,13 @@
       }
 
       .finder__entry__img {
-        height: 45px;
         width: 45px;
+        height: 45px;
+        flex-shrink: 0;
         margin-right: 5px;
         background-size: cover;
         background-position: center;
         outline: 1px solid rgba(0,0,0,.08);
-        flex-shrink: 0;
       }
 
       .finder__entry__info {

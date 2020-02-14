@@ -2,51 +2,53 @@ import React from 'react';
 
 import CopyText from '../copy-text/CopyText';
 
-export default () => {
+const SiteInfo = () => {
     const {
-        locationId,
         id,
-        locationPersonId,
         tapp,
+        locationId,
+        locationPersonId,
     } = chayns.env.site;
 
     return (
-        <div className="chaynsDev__siteInfo">
+        <div className="chayns-dev__siteInfo">
             <h2 className="chayns__background-color">
                 Site Info
             </h2>
-            <div className="flexSplit">
-                <div className="flexSplit__left">
+            <div className="flex-split">
+                <div className="flex-split__left">
                     <p>SiteId</p>
                 </div>
-                <div className="flexSplit__right">
+                <div className="flex-split__right">
                     <CopyText content={id}/>
                 </div>
             </div>
-            <div className="flexSplit">
-                <div className="flexSplit__left">
+            <div className="flex-split">
+                <div className="flex-split__left">
                     <p>LocationId</p>
                 </div>
-                <div className="flexSplit__right">
+                <div className="flex-split__right">
                     <CopyText content={locationId}/>
                 </div>
             </div>
-            <div className="flexSplit">
-                <div className="flexSplit__left">
+            <div className="flex-split">
+                <div className="flex-split__left">
                     <p>LocationPId</p>
                 </div>
-                <div className="flexSplit__right">
+                <div className="flex-split__right">
                     <CopyText content={locationPersonId}/>
                 </div>
             </div>
-            <div className="flexSplit">
-                <div className="flexSplit__left">
+            <div className="flex-split">
+                <div className="flex-split__left">
                     <p>TappId</p>
                 </div>
-                <div className="flexSplit__right">
+                <div className="flex-split__right">
                     <CopyText content={tapp.id}/>
                 </div>
             </div>
         </div>
     );
 };
+
+export default SiteInfo;

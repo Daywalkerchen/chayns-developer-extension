@@ -12,7 +12,7 @@ export default () => {
     } = window.chaynsDevSettings;
 
     return (
-        <div className="chaynsDev__modules">
+        <div className="chayns-dev__modules">
             {showUserInfo && <UserInfo/>}
             {showSiteInfo && <SiteInfo/>}
             {showFinder && <Finder/>}

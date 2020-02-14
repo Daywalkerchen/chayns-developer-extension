@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
+
 import copyToClipboard from '../../utils/copyToClipboard';
+
 import './copy-text.scss';
 
-export default ({ content }) => {
+const CopyText = ({ content }) => {
     const stringContent = `${content || ''}`.trim();
+
     const [wasCopied, setWasCopied] = useState(false);
 
     const handleCopyToClipboard = () => {
         copyToClipboard(stringContent);
+
         setWasCopied(true);
+
         setTimeout(() => {
             setWasCopied(false);
         }, 100);
@@ -23,3 +28,5 @@ export default ({ content }) => {
         </div>
     );
 };
+
+export default memo(CopyText);

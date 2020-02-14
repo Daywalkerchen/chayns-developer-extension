@@ -1,5 +1,4 @@
 import React, {
-    memo,
     useRef,
     useState,
     useEffect,
@@ -81,7 +80,7 @@ const PersonFinder = () => {
     }, [query]);
 
     return (
-        <div className="chaynsDev__finder">
+        <div className="chayns-dev__finder">
             <h2 className="chayns__background-color">
                 Person Finder
             </h2>
@@ -92,7 +91,7 @@ const PersonFinder = () => {
                 onChange={(e) => setQuery(e.target.value || '')}
             />
             {isLoading
-                ? <p className="centerMsg">Loading...</p>
+                ? <p className="center-message">Loading...</p>
                 : (queryResult.data && queryResult.data.length > 0) ? (
                     <div className="finder__entryWrapper">
                         {queryResult.data.map((user) => (
@@ -128,4 +127,4 @@ const PersonFinder = () => {
     );
 };
 
-export default memo(PersonFinder);
+export default PersonFinder;

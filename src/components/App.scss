@@ -1,13 +1,13 @@
-.chaynsDev-injectionRoot {
+.chayns-dev-injection-root {
   h2 {
-    text-align: center;
     color: #fff;
     padding: 0 5px;
-    white-space: nowrap;
     overflow: hidden;
+    margin-top: 10px;
     font-size: 1.2rem;
     user-select: none;
-    margin-top: 10px;
+    text-align: center;
+    white-space: nowrap;
   }
 
   b {
@@ -18,35 +18,35 @@
     display: none !important;
   }
 
-  .contentWrapper {
+  .content-wrapper {
     padding: 20px;
   }
 
-  .btnWrapper {
-    padding-top: 10px;
+  .btn-wrapper {
     display: flex;
-    justify-content: center;
+    padding-top: 10px;
     align-items: center;
+    justify-content: center;
   }
 
-  .centerMsg {
-    text-align: center;
+  .center-message {
     overflow: hidden;
+    text-align: center;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
 
-  .flexSplit {
+  .flex-split {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 
-    .flexSplit__left {
+    &__left {
       max-width: 55%;
       overflow: hidden;
     }
 
-    .flexSplit__right {
+    &__right {
       width: 40%;
 
       p {
@@ -58,7 +58,7 @@
     }
   }
 
-  .chaynsDev__settings {
+  .chayns-dev__settings {
     overflow: hidden;
     position: relative;
 

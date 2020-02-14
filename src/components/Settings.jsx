@@ -26,14 +26,14 @@ export default () => {
 
     const reload = () => window.location.reload();
     return (
-        <div className="chaynsDev__settings">
+        <div className="chayns-dev__settings">
             <h2 className="chayns__background-color">Configuration</h2>
             <p>
                 <b>Notice:</b>
                 {' '}
                 Changes are active after reloading.
             </p>
-            <div className="btnWrapper">
+            <div className="btn-wrapper">
                 <button
                     type="button"
                     className="button"

@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
+
 import './config.toggle.scss';
 
-export default ({
+const ConfigToggle = ({
     configDesc,
     configKey,
 }) => {
-    const [currentValue, setCurrentValue] = useState(window.chaynsDevSettings[configKey]);
     const [inputId] = useState(Math.random());
+    const [currentValue, setCurrentValue] = useState(window.chaynsDevSettings[configKey]);
 
     const handleConfigChange = () => {
         const newValue = !currentValue;
@@ -41,3 +42,5 @@ export default ({
         </div>
     );
 };
+
+export default memo(ConfigToggle);

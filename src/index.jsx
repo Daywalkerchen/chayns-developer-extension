@@ -5,19 +5,21 @@ import App from './components/App';
 import inject from './injections/injector';
 
 if (window.chayns) {
-    chayns.ready
-        .then(() => {
+    (async () => {
+        try {
+            await chayns.ready;
+
             inject();
 
             const injectionRoot = document.createElement('div');
 
-            injectionRoot.className = 'chaynsDev-injectionRoot';
+            injectionRoot.className = 'chayns-dev-injection-root';
 
             document.body.appendChild(injectionRoot);
 
             ReactDOM.render(<App/>, injectionRoot);
-        })
-        .catch((e) => {
-            console.error('Plugin injection aborted. No chayns-Environment found', e);
-        });
+        } catch (err) {
+            console.error('Plugin injection aborted. No chayns-Environment found', err);
+        }
+    })();
 }
