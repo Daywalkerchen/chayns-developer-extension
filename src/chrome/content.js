@@ -29,7 +29,6 @@ const settingKeys = [
     { key: 'showTappBadges', _default: true },
     { key: 'showUserInfo', _default: true },
     { key: 'showSiteInfo', _default: true },
-    { key: 'showShopInfo', _default: false },
     { key: 'showLoremIpsum', _default: false },
     { key: 'showFinder', _default: true },
     { key: 'removeMobileInfo', _default: true },

@@ -8,33 +8,31 @@ You can enable/disable every feature individually through the small gear in the 
 
 #### General ####
 
-| Feature       | Description |
-|---------------|-------------|
+| Feature       | Description                                                                       |
+|---------------|-----------------------------------------------------------------------------------|
 | Click-To-Copy | All data-elements can be clicked to directly copy it's content to your clipboard. |
-| Live-Update   | All data-elements are updating live when the environment changes. |
+| Live-Update   | All data-elements are updating live when the environment changes.                 |
 
 #### Modules ####
 
 A module is an element shown in the dock. The dock can be expanded by clicking the icon of the extension.
 
-| Feature     | Description |
-|-------------|-------------|
-| User-Info   | Displays data about the currently logged in user. |
-| Site-Info   | Displays data about both site and currently selected tapp. |
-| Shop-Info   | Scans the current tapp for a microshop and displays information about the branch. |
-| Lorem-Ipsum | A data element containing a 100-word-version of 'Lorem Ipsum' for quick access. |
-| Finder      | An input to resolve a user using either an userId, a personId or the name. |
+| Feature   | Description                                                                |
+|-----------|----------------------------------------------------------------------------|
+| User-Info | Displays data about the currently logged in user.                          |
+| Site-Info | Displays data about both site and currently selected tapp.                 |
+| Finder    | An input to resolve a user using either an userId, a personId or the name. |
 
 #### Mutations ####
 
 These features directly modify the webpage. They occur once, after the initial page load.
 
-| Feature     | Description |
-|-------------|-------------|
-| Site-Mute | Automatically mute the background sound of chayns-Sites. |
-| Remove background video | Automatically remove the background video of chayns-Sites. This can greatly improve performance. |
-| Remove mobile info | Removes the content-card when the site is using the emulated mobile-view. This will center the phone on the screen. |
-| Attach TappIds | Adds a small badge to each tapp-navigation-item including the tappId. Clicking the badge will copy the Id. |
+| Feature                 | Description                                                                                                         |
+|-------------------------|---------------------------------------------------------------------------------------------------------------------|
+| Site-Mute               | Automatically mute the background sound of chayns-Sites.                                                            |
+| Remove background video | Automatically remove the background video of chayns-Sites. This can greatly improve performance.                    |
+| Remove mobile info      | Removes the content-card when the site is using the emulated mobile-view. This will center the phone on the screen. |
+| Attach TappIds          | Adds a small badge to each tapp-navigation-item including the tappId. Clicking the badge will copy the Id.          |
 
 ## Installation ##
 
