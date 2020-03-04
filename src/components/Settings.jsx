@@ -15,6 +15,8 @@ export default () => {
         { key: 'showUserInfo', desc: 'Your Info' },
         { key: 'showSiteInfo', desc: 'Site Info' },
         { key: 'showFinder', desc: 'Person Finder' },
+        { key: 'showShopInfo', desc: 'Shop Info' },
+        { key: 'showLoremIpsum', desc: 'Lorem Ipsum' },
     ];
 
     const renderConfig = (config) => config.map(({ desc, key }) => (
