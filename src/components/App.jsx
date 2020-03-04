@@ -82,7 +82,7 @@ export default class App extends PureComponent {
                 'UPDATE_SETTING',
                 {
                     // eslint-disable-next-line no-nested-ternary
-                    detail: { dockSize: newSize < 0 ? 0 : newSize > 1 ? 1 : newSize },
+                    detail: { dockSize: newSize < 0.1 ? 0.1 : newSize > 1 ? 1 : newSize },
                 },
             ));
         }, 500);

@@ -64,11 +64,16 @@ const initializePlugin = () => {
                 pluginConfig[key] = _default;
             });
 
-            Object.keys(storageConfig).forEach((key) => {
-                if (storageConfig[key] !== undefined) {
-                    pluginConfig[key] = storageConfig[key];
-                }
-            });
+            Object.keys(storageConfig)
+                .forEach((key) => {
+                    if (storageConfig[key] !== undefined) {
+                        if (key === 'dockSize' && storageConfig[key] < 0.1) {
+                            pluginConfig[key] = 0.1;
+                        } else {
+                            pluginConfig[key] = storageConfig[key];
+                        }
+                    }
+                });
 
             injectFunc(() => {
                 document.addEventListener(
