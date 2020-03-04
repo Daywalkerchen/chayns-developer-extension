@@ -24,8 +24,9 @@ export default () => {
     useEffect(() => {
         setIsLoading(true);
         setTimeout(() => {
-            if (window.frames && window.frames.CustomTappIframe) {
-                window.frames.CustomTappIframe.postMessage('smartShopInfo', '*');
+            const frame = document.getElementById(`CustomTappIframe__${chayns.env.site.tapp.id}`);
+            if (frame?.contentWindow) {
+                frame.contentWindow.postMessage('smartShopInfo', '*');
                 if (shopData && shopData.tappId !== chayns.env.site.tapp.id) {
                     setShopData(null);
                 }
