@@ -22,7 +22,6 @@ A module is an element shown in the dock. The dock can be expanded by clicking t
 | User-Info   | Displays data about the currently logged in user. |
 | Site-Info   | Displays data about both site and currently selected tapp. |
 | Shop-Info   | Scans the current tapp for a microshop and displays information about the branch. |
-| Lorem-Ipsum | A data element containing a 100-word-version of 'Lorem Ipsum' for quick access. |
 | Finder      | An input to resolve a user using either an userId, a personId or the name. |
 
 #### Mutations ####
