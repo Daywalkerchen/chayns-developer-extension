@@ -1,7 +1,6 @@
 import React, {
     useState,
     useEffect,
-    Fragment,
 } from 'react';
 import CopyText from '../copy-text/CopyText';
 
@@ -46,19 +45,19 @@ export default () => {
             ) : (
                 shopData ? (
                     <>
-                        <div className="flexSplit">
-                            <div className="flexSplit__left">
+                        <div className="flex-split">
+                            <div className="flex-split__left">
                                 <p>BranchId</p>
                             </div>
-                            <div className="flexSplit__right">
+                            <div className="flex-split__right">
                                 <CopyText content={shopData.branchId}/>
                             </div>
                         </div>
-                        <div className="flexSplit">
-                            <div className="flexSplit__left">
+                        <div className="flex-split">
+                            <div className="flex-split__left">
                                 <p>ShopToken</p>
                             </div>
-                            <div className="flexSplit__right">
+                            <div className="flex-split__right">
                                 <CopyText content={shopData.shopToken}/>
                             </div>
                         </div>
