@@ -3,6 +3,8 @@ import copyToClipBoard from '../../utils/copyToClipboard';
 const $ = (query, root = document) => Array.from(root.querySelectorAll(query));
 
 const addTappId = (navItem) => {
+    if (!navItem) return;
+
     const hasDevEl = $('.chaynsDev-InlineID', navItem).length > 0;
 
     const tappIdAtr = Array.from(navItem.attributes).find((atr) => atr.nodeName === 'data-tappid');
@@ -47,6 +49,8 @@ const addTappId = (navItem) => {
 };
 
 const addRecursiveListeners = (root) => {
+    if (!root) return;
+
     const traverse = () => {
         setTimeout(() => {
             $('.cw-item', root).forEach(addTappId);
