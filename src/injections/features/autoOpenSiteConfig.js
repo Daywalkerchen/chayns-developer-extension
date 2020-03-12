@@ -4,10 +4,9 @@ export default () => {
             const tappGroups = document.querySelectorAll('.cw-group');
 
             if (tappGroups) {
-                const adminGroup = Array.from(tappGroups)
-                    .find((block) => block.innerText.includes(chayns.env.site.title));
+                const adminGroup = tappGroups[1];
 
-                if (adminGroup) {
+                if (adminGroup?.innerText.includes(chayns.env.site.title)) {
                     const accordion = adminGroup.children[0];
 
                     if (accordion) {
