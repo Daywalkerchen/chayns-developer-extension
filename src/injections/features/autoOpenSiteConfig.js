@@ -14,7 +14,6 @@ export default () => {
 
                         if (accordionHead) {
                             accordionHead.click();
-                            accordionHead.style.setProperty('pointer-events', 'none');
                         }
                     }
                 }
