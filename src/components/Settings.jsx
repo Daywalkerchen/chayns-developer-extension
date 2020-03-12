@@ -9,6 +9,7 @@ export default () => {
         { key: 'removeBGVideo', desc: 'Remove BackgroundVideo' },
         { key: 'removeMobileInfo', desc: 'Remove MobileInfo' },
         { key: 'showTappBadges', desc: 'Attach TappIds' },
+        { key: 'autoOpenSiteConfig', desc: 'DefaultOpened SiteConfig' },
     ];
 
     const moduleConfig = [

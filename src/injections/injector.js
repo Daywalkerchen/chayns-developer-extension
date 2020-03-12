@@ -1,4 +1,5 @@
 import addInlineTappIds from './features/addInlineTappIds';
+import openSiteConfig from './features/autoOpenSiteConfig';
 import removeMobileModeInfo from './features/removeMobileInfo';
 import muteBackgroundSound from './features/muteBackgroundSound';
 import removeBackgroundVideo from './features/removeBackgroundVideo';
@@ -11,6 +12,7 @@ export default () => {
         removeBGVideo,
         showTappBadges,
         removeMobileInfo,
+        autoOpenSiteConfig,
     } = window.chaynsDevSettings;
 
     if (autoMute) {
@@ -27,5 +29,9 @@ export default () => {
 
     if (removeMobileInfo) {
         removeMobileModeInfo();
+    }
+
+    if (autoOpenSiteConfig) {
+        openSiteConfig();
     }
 };

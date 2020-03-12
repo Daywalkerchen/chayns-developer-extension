@@ -32,6 +32,7 @@ const settingKeys = [
     { key: 'showShopInfo', _default: false },
     { key: 'showFinder', _default: true },
     { key: 'removeMobileInfo', _default: true },
+    { key: 'autoOpenSiteConfig', _default: true },
 ];
 
 const initializePlugin = () => {

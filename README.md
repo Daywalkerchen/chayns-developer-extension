@@ -34,6 +34,7 @@ These features directly modify the webpage. They occur once, after the initial p
 | Remove background video | Automatically remove the background video of chayns-Sites. This can greatly improve performance. |
 | Remove mobile info | Removes the content-card when the site is using the emulated mobile-view. This will center the phone on the screen. |
 | Attach TappIds | Adds a small badge to each tapp-navigation-item including the tappId. Clicking the badge will copy the Id. |
+| Auto open site config | Automatically open the site's configuration |
 
 ## Installation ##
 
