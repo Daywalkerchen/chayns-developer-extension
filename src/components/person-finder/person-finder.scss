@@ -1,6 +1,6 @@
 .chayns-dev__finder {
 
-  #finder__queryError {
+  .finder__queryError {
     margin-top: 5px;
     text-align: center;
     word-break: break-word;
@@ -19,6 +19,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
+      &__link {
+        padding: 0 5px;
+        display: flex;
+
+        svg {
+          width: 1.5em;
+          height: 1.5em;
+          cursor: pointer;
+        }
+      }
 
       &:not(:last-of-type) {
         border-width: 1px;

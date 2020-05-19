@@ -3,7 +3,8 @@ import React from 'react';
 import UserInfo from './user-info/UserInfo';
 import SiteInfo from './site-info/SiteInfo';
 import ShopInfo from './shop-info/ShopInfo';
-import Finder from './person-finder/PersonFinder';
+import PersonFinder from './person-finder/PersonFinder';
+import LocationFinder from './location-finder/LocationFinder';
 
 export default () => {
     const {
@@ -11,6 +12,7 @@ export default () => {
         showSiteInfo,
         showShopInfo,
         showFinder,
+        showLocationFinder,
     } = window.chaynsDevSettings;
 
     return (
@@ -18,7 +20,8 @@ export default () => {
             {showUserInfo && <UserInfo/>}
             {showSiteInfo && <SiteInfo/>}
             {showShopInfo && <ShopInfo/>}
-            {showFinder && <Finder/>}
+            {showFinder && <PersonFinder/>}
+            {showLocationFinder && <LocationFinder/>}
         </div>
     );
 };

@@ -113,7 +113,7 @@ const PersonFinder = () => {
                         ))}
                     </div>
                 ) : (queryResult.type && (
-                    <p id="finder__queryError">
+                    <p className="finder__queryError">
                         No user with
                         {' '}
                         <b>{queryResult.type}</b>

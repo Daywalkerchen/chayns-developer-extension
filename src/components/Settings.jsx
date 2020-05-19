@@ -16,6 +16,7 @@ export default () => {
         { key: 'showUserInfo', desc: 'Your Info' },
         { key: 'showSiteInfo', desc: 'Site Info' },
         { key: 'showFinder', desc: 'Person Finder' },
+        { key: 'showLocationFinder', desc: 'Location Finder' },
         { key: 'showShopInfo', desc: 'Shop Info' },
     ];
 

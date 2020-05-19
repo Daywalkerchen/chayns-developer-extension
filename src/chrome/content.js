@@ -31,6 +31,7 @@ const settingKeys = [
     { key: 'showSiteInfo', _default: true },
     { key: 'showShopInfo', _default: false },
     { key: 'showFinder', _default: true },
+    { key: 'showLocationFinder', _default: true },
     { key: 'removeMobileInfo', _default: true },
     { key: 'autoOpenSiteConfig', _default: true },
 ];
