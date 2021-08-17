@@ -1,6 +1,6 @@
 {
   "name": "chayns-dev-extension",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Chrome development extension for chayns sites",
   "main": "index.jsx",
   "scripts": {
