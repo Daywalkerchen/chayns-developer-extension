@@ -45,6 +45,9 @@ To use the extension, you need to build the project:
 
 1. Clone the project 
 2. Run `npm install`
+   - If you are unable to install the packages due to make sure, that python2 and MSBuildTools are installed.
+   - You may need to install the windows build tools: `npm install --global --production windows-build-tools --vs2015`
+   - You may also need to manually configure your `VCTargetsPath` environment variable to match you installation. <br> For VS2017: `C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\Common7\IDE\VC\VCTargets` 
 3. Run `npm run build`
 4. Copy the build folder to a desired location.
 5. Go to `chrome://extensions`
