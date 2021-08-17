@@ -45,6 +45,7 @@ const LocationFinder = () => {
                 Location Finder
             </h2>
             <input
+                autoComplete="off"
                 className="input"
                 style={{ width: '100%' }}
                 placeholder="LocationId, SiteId or LocationName"

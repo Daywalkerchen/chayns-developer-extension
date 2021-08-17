@@ -85,6 +85,7 @@ const PersonFinder = () => {
                 Person Finder
             </h2>
             <input
+                autoComplete="off"
                 className="input"
                 style={{ width: '100%' }}
                 placeholder="UserId, PersonId or Username"
