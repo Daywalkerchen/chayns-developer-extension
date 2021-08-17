@@ -4,7 +4,7 @@
   "description": "Chrome development extension for chayns sites",
   "main": "index.jsx",
   "scripts": {
-    "start": "webpack-dev-server --progress --config ./webpack/dev.babel.js",
+    "start": "webpack serve --config ./webpack/dev.babel.js",
     "build": "webpack --config ./webpack/prod.babel.js"
   },
   "author": "Leon Fester",
