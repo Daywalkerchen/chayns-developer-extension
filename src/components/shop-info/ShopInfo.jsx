@@ -23,7 +23,8 @@ export default () => {
     useEffect(() => {
         setIsLoading(true);
         setTimeout(() => {
-            const frame = document.getElementById(`CustomTappIframe__${chayns.env.site.tapp.id}`);
+            const frame = document.getElementById(`CustomTappIframe__${chayns.env.site.tapp.id}__${chayns.env.site.id}`) // new versions of chayns will set another id
+                || document.getElementById(`CustomTappIframe__${chayns.env.site.tapp.id}`);
             if (frame?.contentWindow) {
                 frame.contentWindow.postMessage('smartShopInfo', '*');
                 if (shopData && shopData.tappId !== chayns.env.site.tapp.id) {
