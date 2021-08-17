@@ -103,7 +103,7 @@ export default class App extends PureComponent {
                 onSizeChange={this.handleDockSize}
                 defaultSize={window.chaynsDevSettings.dockSize}
             >
-                <div className="content-wrapper">
+                <div className="chayns-dev-content-wrapper">
                     <ActionBar
                         onHide={this.toggleDockVisibility}
                         onConfigure={this.toggleConfigView}
