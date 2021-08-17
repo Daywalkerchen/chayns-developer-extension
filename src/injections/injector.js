@@ -2,7 +2,7 @@ import addInlineTappIds from './features/addInlineTappIds';
 import openSiteConfig from './features/autoOpenSiteConfig';
 import removeMobileModeInfo from './features/removeMobileInfo';
 import muteBackgroundSound from './features/muteBackgroundSound';
-import removeBackgroundVideo from './features/removeBackgroundVideo';
+import pauseBackgroundVideo from './features/pauseBackgroundVideo';
 
 export default () => {
     if (!window.chaynsDevSettings) return;
@@ -20,7 +20,7 @@ export default () => {
     }
 
     if (removeBGVideo) {
-        removeBackgroundVideo();
+        pauseBackgroundVideo();
     }
 
     if (showTappBadges) {
