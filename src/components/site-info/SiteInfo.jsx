@@ -15,38 +15,46 @@ const SiteInfo = () => {
             <h2 className="chayns__background-color">
                 Site Info
             </h2>
-            <div className="flex-split">
-                <div className="flex-split__left">
-                    <p>SiteId</p>
+            {id && (
+                <div className="flex-split">
+                    <div className="flex-split__left">
+                        <p>SiteId</p>
+                    </div>
+                    <div className="flex-split__right">
+                        <CopyText content={id}/>
+                    </div>
                 </div>
-                <div className="flex-split__right">
-                    <CopyText content={id}/>
+            )}
+            {locationId && (
+                <div className="flex-split">
+                    <div className="flex-split__left">
+                        <p>LocationId</p>
+                    </div>
+                    <div className="flex-split__right">
+                        <CopyText content={locationId}/>
+                    </div>
                 </div>
-            </div>
-            <div className="flex-split">
-                <div className="flex-split__left">
-                    <p>LocationId</p>
+            )}
+            {locationPersonId && (
+                <div className="flex-split">
+                    <div className="flex-split__left">
+                        <p>LocationPId</p>
+                    </div>
+                    <div className="flex-split__right">
+                        <CopyText content={locationPersonId}/>
+                    </div>
                 </div>
-                <div className="flex-split__right">
-                    <CopyText content={locationId}/>
+            )}
+            {tapp.id && (
+                <div className="flex-split">
+                    <div className="flex-split__left">
+                        <p>TappId</p>
+                    </div>
+                    <div className="flex-split__right">
+                        <CopyText content={tapp.id}/>
+                    </div>
                 </div>
-            </div>
-            <div className="flex-split">
-                <div className="flex-split__left">
-                    <p>LocationPId</p>
-                </div>
-                <div className="flex-split__right">
-                    <CopyText content={locationPersonId}/>
-                </div>
-            </div>
-            <div className="flex-split">
-                <div className="flex-split__left">
-                    <p>TappId</p>
-                </div>
-                <div className="flex-split__right">
-                    <CopyText content={tapp.id}/>
-                </div>
-            </div>
+            )}
         </div>
     );
 };
