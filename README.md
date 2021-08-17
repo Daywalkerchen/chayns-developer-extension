@@ -38,7 +38,8 @@ These features directly modify the webpage. They occur once, after the initial p
 
 ## Installation ##
 
-A build version is available under `Q:\LFester\chaynsDev`.
+The newest version is internally available under `Q:\LFester\chaynsDev`.  
+You may also download the latest version from the `Release-Tab` of this repository.  
 Proceed with step `5-9` when using this version.
 
 To use the extension, you need to build the project:
