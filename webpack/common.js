@@ -3,7 +3,7 @@ import autoprefixer from 'autoprefixer';
 
 const ROOT_PATH = path.resolve('./');
 
-export default (dev = false) => ({
+export default {
     node: {
         __filename: true,
     },
@@ -46,4 +46,4 @@ export default (dev = false) => ({
             ],
         }],
     },
-});
+}

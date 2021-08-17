@@ -1,39 +1,29 @@
 import webpack from 'webpack';
+import merge from 'webpack-merge';
 
-import fs from 'fs';
-import path from 'path';
+import common from './common';
 
-import getBaseConfig from './base-config';
-
-export default {
-    ...getBaseConfig(true),
-    devServer: {
-        cert: fs.readFileSync(path.join('//fs1/', 'ssl', 'tobitag.crt')),
-        key: fs.readFileSync(path.join('//fs1/', 'ssl', 'tobitag.key')),
-        historyApiFallback: true,
-        disableHostCheck: true,
-        host: '0.0.0.0',
-        compress: true,
-        https: true,
-        port: 8080,
-        hot: true,
-        headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-            'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+export default merge(
+    common,    {
+        devServer: {
+            host: '0.0.0.0',
+            port: 8080,
+            historyApiFallback: true,
+            compress: true,
+            disableHostCheck: true,
         },
-    },
-    devtool: 'eval-source-map',
-    mode: 'development',
-    plugins: [
-        new webpack.DefinePlugin({
-            __DEV__: true,
-            __STAGING__: false,
-            __LIVE__: false,
-        }),
-        new webpack.LoaderOptionsPlugin({ debug: true }),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.NamedModulesPlugin(),
-    ],
-};
+        devtool: 'inline-source-map',
+        mode: 'development',
+        plugins: [
+            new webpack.DefinePlugin({
+                __DEV__: true,
+                __STAGING__: false,
+                __LIVE__: false,
+            }),
+            new webpack.LoaderOptionsPlugin({ debug: true }),
+            new webpack.HotModuleReplacementPlugin(),
+            new webpack.NoEmitOnErrorsPlugin(),
+            new webpack.NamedModulesPlugin(),
+        ],
+    }
+);
