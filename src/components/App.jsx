@@ -1,15 +1,11 @@
 import React, { PureComponent } from 'react';
 import Dock from 'react-dock';
-
-import Modules from './Modules';
-import Settings from './Settings';
 import ActionBar from './action-bar/ActionBar';
 
 import './App.scss';
 
-const DOCK_STYLE = {
-    backgroundColor: 'rgba(255,255,255,0.8)',
-};
+import Modules from './Modules';
+import Settings from './Settings';
 
 export default class App extends PureComponent {
     constructor(props) {
@@ -18,6 +14,7 @@ export default class App extends PureComponent {
         this.state = {
             showConfig: false,
             showDock: window.chaynsDevSettings.defaultOpened,
+            darkMode: false,
         };
     }
 
@@ -48,7 +45,10 @@ export default class App extends PureComponent {
                                 nextTappId = +tappElements[0].replace('TappID=', '');
                             }
                         } else if (nextTapp.nodeName === 'DIV' && nextTapp.classList.contains('cw-div-tapp')) {
-                            nextTappId = +(Array.from(nextTapp.children)[0].id.replace('TappDiv_', ''));
+                            nextTappId =
+                                +(
+                                    Array.from(nextTapp.children)[0].id.replace('TappDiv_', '')
+                                );
                         }
 
                         if (nextTappId) {
@@ -75,6 +75,36 @@ export default class App extends PureComponent {
         this.setState({ showConfig: !showConfig });
     };
 
+    toggleDarkMode = () => {
+        const { darkMode } = this.state;
+        this.setState({ darkMode: !darkMode });
+
+        const root = document.getElementsByClassName('chayns-dev-injection-root');
+
+        if (!darkMode) {
+            // console.log('DarkMode');
+            // root[0].classList.add('dark-mode');
+            // root[0].classList.remove('light-mode');
+            const p = document.getElementsByTagName('p');
+            for (let i = 0; i < p.length; i++) {
+                p[i].style.color = '#fff';
+            }
+        } else {
+            // console.log('LightMode');
+            // root[0].classList.add('light-mode');
+            // root[0].classList.remove('dark-mode');
+            const p = document.getElementsByTagName('p');
+            for (let i = 0; i < p.length; i++) {
+                p[i].style.color = '#000';
+            }
+        }
+
+        // const p = document.getElementsByTagName('p');
+        // for (let i = 0; i < p.length; i++) {
+        //     p[i].setAttribute('style', 'color: #fff');
+        // }
+    };
+
     handleDockSize = (newSize) => {
         clearTimeout(this.resizeTimeout);
         this.resizeTimeout = setTimeout(() => {
@@ -92,19 +122,26 @@ export default class App extends PureComponent {
         const {
             showDock,
             showConfig,
+            darkMode,
         } = this.state;
+
         return (
             <Dock
                 defaultOpen
                 dimMode="none"
                 position="right"
                 isVisible={showDock}
-                dockStyle={DOCK_STYLE}
+                dockStyle={darkMode ? {
+                    background: '#303030'
+                } : {
+                    background: 'rgba(255,255,255,0.8)'
+                }}
                 onSizeChange={this.handleDockSize}
                 defaultSize={window.chaynsDevSettings.dockSize}
             >
                 <div className="chayns-dev-content-wrapper">
                     <ActionBar
+                        onDarkMode={this.toggleDarkMode}
                         onHide={this.toggleDockVisibility}
                         onConfigure={this.toggleConfigView}
                     />

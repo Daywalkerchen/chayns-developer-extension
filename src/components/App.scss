@@ -1,12 +1,20 @@
 .chayns-dev-injection-root {
+  .light-mode {
+    color: #000000
+  }
+
+  .dark-mode {
+    color: #ffffff
+  }
+
   h2 {
-    color: #fff;
-    padding: 0 5px;
-    overflow: hidden;
-    margin-top: 10px;
+    color: #ffffff;
     font-size: 1.2rem;
-    user-select: none;
+    margin-top: 10px;
+    overflow: hidden;
+    padding: 0 5px;
     text-align: center;
+    user-select: none;
     white-space: nowrap;
   }
 
@@ -23,22 +31,22 @@
   }
 
   .btn-wrapper {
-    display: flex;
-    padding-top: 10px;
     align-items: center;
+    display: flex;
     justify-content: center;
+    padding-top: 10px;
   }
 
   .center-message {
     overflow: hidden;
     text-align: center;
-    white-space: nowrap;
     text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .flex-split {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: space-between;
 
     &__left {
@@ -50,10 +58,10 @@
       width: 40%;
 
       p {
-        width: 100%;
         overflow: hidden;
-        white-space: nowrap;
         text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
       }
     }
   }
@@ -64,8 +72,8 @@
 
     > p {
       overflow: hidden;
-      white-space: nowrap;
       text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 

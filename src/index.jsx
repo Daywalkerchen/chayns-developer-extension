@@ -11,9 +11,6 @@ if (window.chayns) {
 
             inject();
 
-
-
-
             const injectionRoot = document.createElement('div');
 
             injectionRoot.className = 'chayns-dev-injection-root';
