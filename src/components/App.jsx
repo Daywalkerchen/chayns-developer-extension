@@ -19,6 +19,7 @@ export default class App extends PureComponent {
     }
 
     componentDidMount = () => {
+        const { darkMode } = this.state;
         // Login Handling
         const { addAccessTokenChangeListener } = chayns;
         if (addAccessTokenChangeListener) {
@@ -79,30 +80,13 @@ export default class App extends PureComponent {
         const { darkMode } = this.state;
         this.setState({ darkMode: !darkMode });
 
-        const root = document.getElementsByClassName('chayns-dev-injection-root');
-
-        if (!darkMode) {
-            // console.log('DarkMode');
-            // root[0].classList.add('dark-mode');
-            // root[0].classList.remove('light-mode');
-            const p = document.getElementsByTagName('p');
-            for (let i = 0; i < p.length; i++) {
-                p[i].style.color = '#fff';
-            }
+        if (darkMode) {
+            const body = document.body;
+            body.style.color = '#fff'
         } else {
-            // console.log('LightMode');
-            // root[0].classList.add('light-mode');
-            // root[0].classList.remove('dark-mode');
-            const p = document.getElementsByTagName('p');
-            for (let i = 0; i < p.length; i++) {
-                p[i].style.color = '#000';
-            }
+            const body = document.body;
+            body.style.color = '#000'
         }
-
-        // const p = document.getElementsByTagName('p');
-        // for (let i = 0; i < p.length; i++) {
-        //     p[i].setAttribute('style', 'color: #fff');
-        // }
     };
 
     handleDockSize = (newSize) => {
@@ -124,6 +108,15 @@ export default class App extends PureComponent {
             showConfig,
             darkMode,
         } = this.state;
+
+
+        if (darkMode) {
+            const body = document.body;
+            body.style.color = '#fff'
+        } else {
+            const body = document.body;
+            body.style.color = '#000'
+        }
 
         return (
             <Dock
