@@ -6,7 +6,7 @@ import ShopInfo from './shop-info/ShopInfo';
 import PersonFinder from './person-finder/PersonFinder';
 import LocationFinder from './location-finder/LocationFinder';
 
-export default () => {
+export default ({ darkMode }) => {
     const {
         showUserInfo,
         showSiteInfo,
@@ -20,8 +20,8 @@ export default () => {
             {showUserInfo && <UserInfo/>}
             {showSiteInfo && <SiteInfo/>}
             {showShopInfo && <ShopInfo/>}
-            {showFinder && <PersonFinder/>}
-            {showLocationFinder && <LocationFinder/>}
+            {showFinder && <PersonFinder darkMode={darkMode}/>}
+            {showLocationFinder && <LocationFinder darkMode={darkMode}/>}
         </div>
     );
 };

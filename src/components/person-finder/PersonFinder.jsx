@@ -17,7 +17,7 @@ const QUERYTYPES = {
 const regUserId = '^[0-9]+$';
 const regPersonId = '^[0-9]{3}-[0-9]{5}$';
 
-const PersonFinder = () => {
+const PersonFinder = ({ darkMode }) => {
     const timeoutId = useRef(0);
 
     const [query, setQuery] = useState('');
@@ -86,7 +86,7 @@ const PersonFinder = () => {
             </h2>
             <input
                 autoComplete="off"
-                className="input"
+                className={darkMode ? "input input--dark-mode" : "input input--light-mode"}
                 style={{ width: '100%' }}
                 placeholder="UserId, PersonId or Username"
                 onChange={(e) => setQuery(e.target.value || '')}

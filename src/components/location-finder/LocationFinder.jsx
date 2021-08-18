@@ -1,16 +1,21 @@
-import React, { memo, useState, useEffect } from 'react';
+import React, {
+    memo,
+    useEffect,
+    useState
+} from 'react';
 
 import { FaExternalLinkAlt } from 'react-icons/all';
 
 import CopyText from '../copy-text/CopyText';
 
 import {
+    getLocationInfosByLocationId,
     getLocationInfosByName,
     getLocationInfosBySiteId,
-    getLocationInfosByLocationId,
 } from './getLocationInfos';
+import './location-finder.scss';
 
-const LocationFinder = () => {
+const LocationFinder = ({ darkMode }) => {
     const [query, setQuery] = useState('');
     const [queryResult, setQueryResult] = useState([]);
 
@@ -46,14 +51,18 @@ const LocationFinder = () => {
             </h2>
             <input
                 autoComplete="off"
-                className="input"
+                className={darkMode ? "input input--dark-mode" : "input input--light-mode"}
                 style={{ width: '100%' }}
                 placeholder="LocationId, SiteId or LocationName"
                 onChange={(e) => setQuery(e.target.value || '')}
             />
             <div className="finder__entryWrapper">
                 {Array.isArray(queryResult)
-                    ? queryResult.map(({ name, locationId, siteId }) => (
+                    ? queryResult.map(({
+                        name,
+                        locationId,
+                        siteId
+                    }) => (
                         <div className="finder__entry chayns__border-color">
                             <div
                                 className="finder__entry__img"
