@@ -131,15 +131,16 @@ export default class App extends PureComponent {
                 position="right"
                 isVisible={showDock}
                 dockStyle={darkMode ? {
-                    background: '#303030'
+                    background: '#303030',
                 } : {
-                    background: 'rgba(255,255,255,0.8)'
+                    background: 'rgba(255,255,255,0.8)',
                 }}
                 onSizeChange={this.handleDockSize}
                 defaultSize={window.chaynsDevSettings.dockSize}
             >
                 <div className="chayns-dev-content-wrapper">
                     <ActionBar
+                        darkMode={darkMode}
                         onDarkMode={this.toggleDarkMode}
                         onHide={this.toggleDockVisibility}
                         onConfigure={this.toggleConfigView}

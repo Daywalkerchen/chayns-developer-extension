@@ -1,9 +1,13 @@
 .chayns-dev__actionbar {
-  width: 100%;
-  display: flex;
-  margin-bottom: 5px;
   align-items: center;
+  display: flex;
   justify-content: space-between;
+  margin-bottom: 5px;
+  width: 100%;
+
+  &__mode-switch {
+    padding-right: 10px
+  }
 
   svg {
     cursor: pointer;

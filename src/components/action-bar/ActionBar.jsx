@@ -1,14 +1,20 @@
 import React, { memo } from 'react';
 
 import {
-    FaTimes,
     FaCog,
-    FaLightbulb
+    FaMoon,
+    FaTimes,
+    FaSun
 } from 'react-icons/fa';
 
 import './action.bar.scss';
 
-const ActionBar = ({ onHide, onConfigure, onDarkMode }) => (
+const ActionBar = ({
+    darkMode,
+    onHide,
+    onConfigure,
+    onDarkMode
+}) => (
     <div className="chayns-dev__actionbar">
         <div className="chayns-dev__actionbar--left">
             <FaTimes
@@ -17,10 +23,17 @@ const ActionBar = ({ onHide, onConfigure, onDarkMode }) => (
             />
         </div>
         <div className="chayns-dev__actionbar--right">
-            <FaLightbulb
-                onClick={onDarkMode}
-                className="chayns__color"
-            />
+            {darkMode ? (
+                <FaSun
+                    onClick={onDarkMode}
+                    className="chayns__color chayns-dev__actionbar__mode-switch"
+                />
+            ) : (
+                <FaMoon
+                    onClick={onDarkMode}
+                    className="chayns__color chayns-dev__actionbar__mode-switch"
+                />
+            )}
             <FaCog
                 onClick={onConfigure}
                 className="chayns__color"
