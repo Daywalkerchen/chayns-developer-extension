@@ -83,9 +83,15 @@ export default class App extends PureComponent {
         if (darkMode) {
             const body = document.body;
             body.style.color = '#fff'
+
+            const copyText = document.getElementsByClassName('copyText');
+            copyText.style.background = '#000'
         } else {
             const body = document.body;
             body.style.color = '#000'
+
+            const copyText = document.getElementsByClassName('copyText');
+            copyText.style.background = '#fff'
         }
     };
 
