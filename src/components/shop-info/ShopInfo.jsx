@@ -1,6 +1,6 @@
 import React, {
-    useState,
     useEffect,
+    useState,
 } from 'react';
 import CopyText from '../copy-text/CopyText';
 
@@ -37,9 +37,7 @@ export default () => {
 
     return (
         <div className="chaynsDev__shopInfo">
-            <h2 className="chayns__background-color">
-                Shop Info
-            </h2>
+            <h3>Shop Info</h3>
             {/* eslint-disable-next-line no-nested-ternary */}
             {isLoading ? (
                 <p className="centerMsg">Loading...</p>

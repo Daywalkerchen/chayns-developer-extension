@@ -1,11 +1,13 @@
+import { ThemeProvider } from '@material-ui/core/styles';
 import React, { PureComponent } from 'react';
 import Dock from 'react-dock';
 import ActionBar from '../components/action-bar/ActionBar';
+import darkTheme from '../theme/dark-theme';
 
 import './App.scss';
+import Settings from './settings-view/Settings';
 
 import UserView from './user-view/UserView';
-import Settings from './settings-view/Settings';
 
 export default class App extends PureComponent {
     constructor(props) {
@@ -81,26 +83,26 @@ export default class App extends PureComponent {
 
         if (darkMode) {
             const body = document.body;
-            body.style.color = '#fff'
+            body.style.color = '#ffffff';
 
             const inputs = document.getElementsByTagName('input');
             for (let i = 0; i < inputs.length; i++) {
-                inputs[i].style.color = '#fff'
+                inputs[i].style.color = '#ffffff';
             }
 
             const copyText = document.getElementsByClassName('copyText');
-            copyText.style.background = '#000'
+            copyText.style.background = '#000000';
         } else {
             const body = document.body;
-            body.style.color = '#000'
+            body.style.color = '#000000';
 
             const inputs = document.getElementsByTagName('input');
             for (let i = 0; i < inputs.length; i++) {
-                inputs[i].style.color = '#000'
+                inputs[i].style.color = '#000000';
             }
 
             const copyText = document.getElementsByClassName('copyText');
-            copyText.style.background = '#fff'
+            copyText.style.background = '#fff';
         }
     };
 
@@ -126,10 +128,10 @@ export default class App extends PureComponent {
 
         if (darkMode) {
             const body = document.body;
-            body.style.color = '#fff'
+            body.style.color = '#ffffff';
         } else {
             const body = document.body;
-            body.style.color = '#000'
+            body.style.color = '#000';
         }
 
         return (
@@ -146,17 +148,19 @@ export default class App extends PureComponent {
                 onSizeChange={this.handleDockSize}
                 defaultSize={window.chaynsDevSettings.dockSize}
             >
-                <ActionBar
-                    darkMode={darkMode}
-                    onDarkMode={this.toggleDarkMode}
-                    onHide={this.toggleDockVisibility}
-                    onConfigure={this.toggleConfigView}
-                />
-                <div className="chayns-dev-content-wrapper">
-                    {showConfig
-                        ? <Settings />
-                        : <UserView darkMode={darkMode}/>}
-                </div>
+                <ThemeProvider theme={darkTheme}>
+                    <ActionBar
+                        darkMode={darkMode}
+                        onDarkMode={this.toggleDarkMode}
+                        onHide={this.toggleDockVisibility}
+                        onConfigure={this.toggleConfigView}
+                    />
+                    <div className="chayns-dev-content-wrapper">
+                        {showConfig
+                            ? <Settings/>
+                            : <UserView darkMode={darkMode}/>}
+                    </div>
+                </ThemeProvider>
             </Dock>
         );
     };

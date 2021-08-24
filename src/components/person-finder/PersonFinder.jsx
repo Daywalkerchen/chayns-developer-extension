@@ -1,4 +1,7 @@
-import { Grid } from '@material-ui/core';
+import {
+    Grid,
+    Input
+} from '@material-ui/core';
 import React, {
     useEffect,
     useRef,
@@ -82,11 +85,10 @@ const PersonFinder = ({ darkMode }) => {
     return (
         <div className="chayns-dev__finder">
             <h3>Person Finder</h3>
-            <input
-                autoComplete="off"
-                className={darkMode ? 'input input--dark-mode' : 'input input--light-mode'}
-                style={{ width: '100%' }}
+            <Input
                 placeholder="UserId, PersonId or Username"
+                autoComplete="off"
+                fullWidth
                 onChange={(e) => setQuery(e.target.value || '')}
             />
             {isLoading
@@ -128,21 +130,6 @@ const PersonFinder = ({ darkMode }) => {
                                     </div>
                                 </Grid>
                             </Grid>
-                            // <div className="finder__entry chayns__border-color">
-                            //     <div
-                            //         className="finder__entry__img"
-                            //         style={{ backgroundImage: `url("https://sub60.tobit.com/u/${user.userId}?size=45")` }}
-                            //     />
-                            //     <div className="finder__entry__info">
-                            //         <div className="finder__entry__info--name">
-                            //             <CopyText content={user.name}/>
-                            //         </div>
-                            //         <div className="finder__entry__info--ids">
-                            //             <CopyText content={user.userId}/>
-                            //             <CopyText content={user.personId}/>
-                            //         </div>
-                            //     </div>
-                            // </div>
                         ))}
                     </div>
                 ) : (
