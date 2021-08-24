@@ -4,3 +4,55 @@
 .input--light-mode::placeholder {
   color: #000
 }
+
+.finder__entry-location {
+  align-items: center;
+  display: flex;
+  height: 60px;
+  justify-content: center;
+
+  &__link {
+    display: flex;
+    padding: 0 5px;
+
+    svg {
+      cursor: pointer;
+      height: 1.5em;
+      width: 1.5em;
+    }
+  }
+
+  &:not(:last-of-type) {
+    border-bottom-style: solid;
+    border-width: 1px;
+  }
+
+  .finder__entry__img {
+    border-radius: 50px;
+    background-position: center;
+    background-size: cover;
+    flex-shrink: 0;
+    height: 45px;
+    margin-right: 5px;
+    outline: 1px solid rgba(0, 0, 0, .08);
+    width: 45px;
+  }
+
+  .finder__entry__info {
+    width: 100%;
+
+    .finder__entry__info--name {
+      margin-bottom: 5px;
+    }
+
+    .finder__entry__info--ids {
+      display: flex;
+
+      .copyText {
+        &:first-of-type {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

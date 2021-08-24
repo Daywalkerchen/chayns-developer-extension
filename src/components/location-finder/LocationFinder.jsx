@@ -61,7 +61,7 @@ const LocationFinder = ({ darkMode }) => {
                         locationId,
                         siteId
                     }) => (
-                        <div className="finder__entry chayns__border-color">
+                        <div className="finder__entry-location chayns__border-color">
                             <div
                                 className="finder__entry__img"
                                 style={{ backgroundImage: `url("https://sub60.tobit.com/l/${locationId}?size=45")` }}

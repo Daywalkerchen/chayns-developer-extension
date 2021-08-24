@@ -14,10 +14,11 @@
     overflow: hidden;
 
     .finder__entry {
-      align-items: center;
-      display: flex;
-      height: 60px;
-      justify-content: center;
+      padding-top: 10px;
+      //align-items: center;
+      //display: flex;
+      //height: 60px;
+      //justify-content: center;
 
       &__link {
         display: flex;
@@ -31,8 +32,8 @@
       }
 
       &:not(:last-of-type) {
-        border-bottom-style: solid;
-        border-width: 1px;
+        //border-bottom-style: solid;
+        //border-width: 1px;
       }
 
       .finder__entry__img {

@@ -10,11 +10,15 @@
     align-items: center;
   }
 
-  &__mode-switch {
-    padding-right: 10px
+  svg {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 
-  svg {
+  i {
     cursor: pointer;
 
     &:hover {

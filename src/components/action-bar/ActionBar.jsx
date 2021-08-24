@@ -4,9 +4,7 @@ import { FaSlidersH } from 'react-icons/all';
 import './action.bar.scss';
 
 const ActionBar = ({
-    darkMode,
     onConfigure,
-    onDarkMode,
     onHide,
 }) => (
     <div className="chayns-dev__actionbar">
@@ -18,17 +16,6 @@ const ActionBar = ({
             />
         </div>
         <div className="chayns-dev__actionbar--right">
-            {/*{darkMode ? (*/}
-            {/*    <FaSun*/}
-            {/*        onClick={onDarkMode}*/}
-            {/*        className="chayns__color chayns-dev__actionbar__mode-switch"*/}
-            {/*    />*/}
-            {/*) : (*/}
-            {/*    <FaMoon*/}
-            {/*        onClick={onDarkMode}*/}
-            {/*        className="chayns__color chayns-dev__actionbar__mode-switch"*/}
-            {/*    />*/}
-            {/*)}*/}
             <FaSlidersH
                 onClick={onConfigure}
                 className="chayns__color"
