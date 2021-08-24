@@ -1,11 +1,5 @@
 import React, { memo } from 'react';
-
-import {
-    FaCog,
-    FaBars,
-    FaMoon,
-    FaSun
-} from 'react-icons/fa';
+import { FaSlidersH } from 'react-icons/all';
 
 import './action.bar.scss';
 
@@ -21,9 +15,7 @@ const ActionBar = ({
                 onClick={onHide}
                 className="fa ts-chayns chayns__color"
                 style={{ fontSize: '30px' }}
-            >
-                
-            </i>
+            />
         </div>
         <div className="chayns-dev__actionbar--right">
             {/*{darkMode ? (*/}
@@ -37,7 +29,7 @@ const ActionBar = ({
             {/*        className="chayns__color chayns-dev__actionbar__mode-switch"*/}
             {/*    />*/}
             {/*)}*/}
-            <FaBars
+            <FaSlidersH
                 onClick={onConfigure}
                 className="chayns__color"
             />

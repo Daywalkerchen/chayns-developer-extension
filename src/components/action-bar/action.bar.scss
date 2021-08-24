@@ -5,6 +5,11 @@
   justify-content: space-between;
   padding: 0 15px;
 
+  &--left {
+    display: flex;
+    align-items: center;
+  }
+
   &__mode-switch {
     padding-right: 10px
   }
