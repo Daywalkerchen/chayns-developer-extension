@@ -81,9 +81,7 @@ const PersonFinder = ({ darkMode }) => {
 
     return (
         <div className="chayns-dev__finder">
-            <h2 className="chayns__background-color">
-                Person Finder
-            </h2>
+            <h3>Person Finder</h3>
             <input
                 autoComplete="off"
                 className={darkMode ? "input input--dark-mode" : "input input--light-mode"}

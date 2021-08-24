@@ -1,4 +1,8 @@
-import React, { memo, useState } from 'react';
+import { Snackbar } from '@material-ui/core';
+import React, {
+    memo,
+    useState
+} from 'react';
 
 import copyToClipboard from '../../utils/copyToClipboard';
 
@@ -16,7 +20,7 @@ const CopyText = ({ content }) => {
 
         setTimeout(() => {
             setWasCopied(false);
-        }, 100);
+        }, 600);
     };
 
     return (
@@ -25,6 +29,15 @@ const CopyText = ({ content }) => {
             onClick={handleCopyToClipboard}
         >
             {stringContent}
+            <Snackbar
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                }}
+                autoHideDuration={1000}
+                message="Copied"
+                open={wasCopied}
+            />
         </div>
     );
 };

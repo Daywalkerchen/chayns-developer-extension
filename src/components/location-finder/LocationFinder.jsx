@@ -46,9 +46,7 @@ const LocationFinder = ({ darkMode }) => {
 
     return (
         <div className="chayns-dev__finder">
-            <h2 className="chayns__background-color">
-                Location Finder
-            </h2>
+            <h3>Location Finder</h3>
             <input
                 autoComplete="off"
                 className={darkMode ? "input input--dark-mode" : "input input--light-mode"}

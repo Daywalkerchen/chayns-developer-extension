@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
 import Dock from 'react-dock';
-import ActionBar from './action-bar/ActionBar';
+import ActionBar from '../components/action-bar/ActionBar';
 
 import './App.scss';
 
-import Modules from './Modules';
-import Settings from './Settings';
+import UserView from './user-view/UserView';
+import Settings from './settings-view/Settings';
 
 export default class App extends PureComponent {
     constructor(props) {
@@ -14,12 +14,11 @@ export default class App extends PureComponent {
         this.state = {
             showConfig: false,
             showDock: window.chaynsDevSettings.defaultOpened,
-            darkMode: false,
+            darkMode: true,
         };
     }
 
     componentDidMount = () => {
-        const { darkMode } = this.state;
         // Login Handling
         const { addAccessTokenChangeListener } = chayns;
         if (addAccessTokenChangeListener) {
@@ -140,23 +139,23 @@ export default class App extends PureComponent {
                 position="right"
                 isVisible={showDock}
                 dockStyle={darkMode ? {
-                    background: '#303030',
+                    background: 'rgba(19,19,19,0.85)',
                 } : {
                     background: 'rgba(255,255,255,0.8)',
                 }}
                 onSizeChange={this.handleDockSize}
                 defaultSize={window.chaynsDevSettings.dockSize}
             >
+                <ActionBar
+                    darkMode={darkMode}
+                    onDarkMode={this.toggleDarkMode}
+                    onHide={this.toggleDockVisibility}
+                    onConfigure={this.toggleConfigView}
+                />
                 <div className="chayns-dev-content-wrapper">
-                    <ActionBar
-                        darkMode={darkMode}
-                        onDarkMode={this.toggleDarkMode}
-                        onHide={this.toggleDockVisibility}
-                        onConfigure={this.toggleConfigView}
-                    />
                     {showConfig
                         ? <Settings />
-                        : <Modules darkMode={darkMode}/>}
+                        : <UserView darkMode={darkMode}/>}
                 </div>
             </Dock>
         );

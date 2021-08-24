@@ -81,10 +81,19 @@
     opacity: 0.8;
   }
 
-  .input--dark-mode::placeholder {
-    color: #fff
+  .input--dark-mode {
+    color: #ffffff;
   }
+
+  .input--light-mode {
+    color: #000000;
+  }
+
+  .input--dark-mode::placeholder {
+    color: #ffffff
+  }
+
   .input--light-mode::placeholder {
-    color: #000
+    color: #000000
   }
 }

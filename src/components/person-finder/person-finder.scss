@@ -1,5 +1,4 @@
 .chayns-dev__finder {
-
   .finder__queryError {
     margin-top: 5px;
     text-align: center;
@@ -15,35 +14,36 @@
     overflow: hidden;
 
     .finder__entry {
-      height: 60px;
-      display: flex;
       align-items: center;
+      display: flex;
+      height: 60px;
       justify-content: center;
 
       &__link {
-        padding: 0 5px;
         display: flex;
+        padding: 0 5px;
 
         svg {
-          width: 1.5em;
-          height: 1.5em;
           cursor: pointer;
+          height: 1.5em;
+          width: 1.5em;
         }
       }
 
       &:not(:last-of-type) {
-        border-width: 1px;
         border-bottom-style: solid;
+        border-width: 1px;
       }
 
       .finder__entry__img {
-        width: 45px;
-        height: 45px;
-        flex-shrink: 0;
-        margin-right: 5px;
-        background-size: cover;
+        border-radius: 50px;
         background-position: center;
-        outline: 1px solid rgba(0,0,0,.08);
+        background-size: cover;
+        flex-shrink: 0;
+        height: 45px;
+        margin-right: 5px;
+        outline: 1px solid rgba(0, 0, 0, .08);
+        width: 45px;
       }
 
       .finder__entry__info {

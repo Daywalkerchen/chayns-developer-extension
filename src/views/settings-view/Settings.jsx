@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ConfigToggle from './config-toggle/ConfigToggle';
+import ConfigToggle from '../../components/config-toggle/ConfigToggle';
 
 export default () => {
     const generalConfig = [

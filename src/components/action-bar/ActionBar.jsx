@@ -2,8 +2,8 @@ import React, { memo } from 'react';
 
 import {
     FaCog,
+    FaBars,
     FaMoon,
-    FaTimes,
     FaSun
 } from 'react-icons/fa';
 
@@ -11,30 +11,33 @@ import './action.bar.scss';
 
 const ActionBar = ({
     darkMode,
-    onHide,
     onConfigure,
-    onDarkMode
+    onDarkMode,
+    onHide,
 }) => (
     <div className="chayns-dev__actionbar">
         <div className="chayns-dev__actionbar--left">
-            <FaTimes
+            <i
                 onClick={onHide}
-                className="chayns__color"
-            />
+                className="fa ts-chayns chayns__color"
+                style={{ fontSize: '30px' }}
+            >
+                
+            </i>
         </div>
         <div className="chayns-dev__actionbar--right">
-            {darkMode ? (
-                <FaSun
-                    onClick={onDarkMode}
-                    className="chayns__color chayns-dev__actionbar__mode-switch"
-                />
-            ) : (
-                <FaMoon
-                    onClick={onDarkMode}
-                    className="chayns__color chayns-dev__actionbar__mode-switch"
-                />
-            )}
-            <FaCog
+            {/*{darkMode ? (*/}
+            {/*    <FaSun*/}
+            {/*        onClick={onDarkMode}*/}
+            {/*        className="chayns__color chayns-dev__actionbar__mode-switch"*/}
+            {/*    />*/}
+            {/*) : (*/}
+            {/*    <FaMoon*/}
+            {/*        onClick={onDarkMode}*/}
+            {/*        className="chayns__color chayns-dev__actionbar__mode-switch"*/}
+            {/*    />*/}
+            {/*)}*/}
+            <FaBars
                 onClick={onConfigure}
                 className="chayns__color"
             />

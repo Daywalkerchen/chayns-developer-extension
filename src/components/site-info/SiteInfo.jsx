@@ -12,9 +12,7 @@ const SiteInfo = () => {
 
     return (
         <div className="chayns-dev__siteInfo">
-            <h2 className="chayns__background-color">
-                Site Info
-            </h2>
+            <h3>Site Info</h3>
             {id && (
                 <div className="flex-split">
                     <div className="flex-split__left">

@@ -1,9 +1,9 @@
 .chayns-dev__actionbar {
   align-items: center;
   display: flex;
+  height: 45px;
   justify-content: space-between;
-  margin-bottom: 5px;
-  width: 100%;
+  padding: 0 15px;
 
   &__mode-switch {
     padding-right: 10px
