@@ -41,16 +41,20 @@ export default () => {
             desc: 'Site Info'
         },
         {
+            key: 'showShopInfo',
+            desc: 'Shop Info'
+        },
+        {
+            key: 'showUtils',
+            desc: 'Utils'
+        },
+        {
             key: 'showFinder',
             desc: 'Person Finder'
         },
         {
             key: 'showLocationFinder',
             desc: 'Location Finder'
-        },
-        {
-            key: 'showShopInfo',
-            desc: 'Shop Info'
         },
     ];
 

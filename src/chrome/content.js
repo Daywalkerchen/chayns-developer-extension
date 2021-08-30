@@ -29,6 +29,7 @@ const settingKeys = [
     { key: 'showTappBadges', _default: true },
     { key: 'showUserInfo', _default: true },
     { key: 'showSiteInfo', _default: true },
+    { key: 'showUtils', _default: false },
     { key: 'showShopInfo', _default: false },
     { key: 'showFinder', _default: true },
     { key: 'showLocationFinder', _default: true },

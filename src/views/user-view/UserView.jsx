@@ -5,6 +5,7 @@ import ShopInfo from '../../components/shop-info/ShopInfo';
 import SiteInfo from '../../components/site-info/SiteInfo';
 
 import UserInfo from '../../components/user-info/UserInfo';
+import Utils from '../../components/utils/Utils';
 
 const UserView = ({ darkMode }) => {
     const {
@@ -13,6 +14,7 @@ const UserView = ({ darkMode }) => {
         showShopInfo,
         showSiteInfo,
         showUserInfo,
+        showUtils,
     } = window.chaynsDevSettings;
 
     return (
@@ -20,6 +22,7 @@ const UserView = ({ darkMode }) => {
             {showUserInfo && <UserInfo/>}
             {showSiteInfo && <SiteInfo/>}
             {showShopInfo && <ShopInfo/>}
+            {showUtils && <Utils/>}
             {showFinder && <PersonFinder darkMode={darkMode}/>}
             {showLocationFinder && <LocationFinder darkMode={darkMode}/>}
         </div>
