@@ -1,3 +1,4 @@
+import { Button } from '@material-ui/core';
 import React, { memo } from 'react';
 
 import CopyText from '../copy-text/CopyText';
@@ -19,7 +20,7 @@ const UserInfo = () => {
                 <p className="center-message">
                     You are not logged in
                 </p>
-                <div className="btn-wrapper">
+                <div className="btn-wrapper btn-wrapper--padding">
                     <button
                         type="button"
                         className="button"
@@ -62,14 +63,15 @@ const UserInfo = () => {
                     <CopyText content={tobitAccessToken}/>
                 </div>
             </div>
-            <div className="btn-wrapper">
-                <button
-                    type="button"
-                    className="button"
+            <div className="btn-wrapper btn-wrapper--padding">
+                <Button
+                    variant="contained"
+                    color="primary"
+                    size="small"
                     onClick={() => chayns.logout()}
                 >
                     Logout
-                </button>
+                </Button>
             </div>
         </div>
     );

@@ -27,14 +27,17 @@
   }
 
   .chayns-dev-content-wrapper {
-    padding: 20px;
+    padding: 0 20px;
   }
 
   .btn-wrapper {
     align-items: center;
     display: flex;
     justify-content: center;
-    padding-top: 10px;
+
+    &--padding {
+      padding-top: 20px;
+    }
   }
 
   .center-message {

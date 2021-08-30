@@ -4,6 +4,8 @@ import React, {
 } from 'react';
 import CopyText from '../copy-text/CopyText';
 
+import './shop-info.scss';
+
 export default () => {
     const [isLoading, setIsLoading] = useState(true);
     const [shopData, setShopData] = useState(null);
@@ -39,9 +41,7 @@ export default () => {
         <div className="chaynsDev__shopInfo">
             <h3>Shop Info</h3>
             {/* eslint-disable-next-line no-nested-ternary */}
-            {isLoading ? (
-                <p className="centerMsg">Loading...</p>
-            ) : (
+            {isLoading ? <p className="chaynsDev__shopInfo--mediumEmphasis">Loading...</p> : (
                 shopData ? (
                     <>
                         <div className="flex-split">
@@ -61,7 +61,7 @@ export default () => {
                             </div>
                         </div>
                     </>
-                ) : <p className="centerMsg">No Shop found</p>
+                ) : <p className="chaynsDev__shopInfo--mediumEmphasis">No Shop found</p>
             )}
         </div>
     );

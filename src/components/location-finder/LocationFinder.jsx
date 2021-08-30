@@ -1,3 +1,4 @@
+import { Input } from '@material-ui/core';
 import React, {
     memo,
     useEffect,
@@ -47,12 +48,11 @@ const LocationFinder = ({ darkMode }) => {
     return (
         <div className="chayns-dev__finder">
             <h3>Location Finder</h3>
-            <input
+            <Input
                 autoComplete="off"
-                className={darkMode ? "input input--dark-mode" : "input input--light-mode"}
-                style={{ width: '100%' }}
-                placeholder="LocationId, SiteId or LocationName"
+                fullWidth
                 onChange={(e) => setQuery(e.target.value || '')}
+                placeholder="LocationId, SiteId or LocationName"
             />
             <div className="finder__entryWrapper">
                 {Array.isArray(queryResult)

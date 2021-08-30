@@ -86,10 +86,10 @@ const PersonFinder = ({ darkMode }) => {
         <div className="chayns-dev__finder">
             <h3>Person Finder</h3>
             <Input
-                placeholder="UserId, PersonId or Username"
                 autoComplete="off"
                 fullWidth
                 onChange={(e) => setQuery(e.target.value || '')}
+                placeholder="UserId, PersonId or Username"
             />
             {isLoading
                 ? <p className="center-message">Loading...</p>

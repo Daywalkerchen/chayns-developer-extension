@@ -7,13 +7,26 @@ const darkTheme = createTheme({
             main: chayns.env.site.color
         }
     },
-    // overrides: {
-    //     MuiInputBase: {
-    //         focused: {
-    //             border:
-    //         },
-    //     }
-    // }
+    overrides: {
+        MuiInput: {
+            underline: {
+                '&:before': {
+                    borderBottom: `1px solid ${chayns.env.site.color}`
+                },
+                '&:after': {
+                    borderBottom: `1px solid ${chayns.env.site.color}`
+                },
+                '&:hover:not(.Mui-disabled):before': {
+                    borderBottom: `1px solid ${chayns.env.site.color}`
+                }
+            },
+        },
+        MuiButton: {
+            label: {
+                color: '#fff',
+            }
+        }
+    }
 });
 
 export default darkTheme;
