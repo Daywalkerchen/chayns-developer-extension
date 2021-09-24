@@ -1,6 +1,6 @@
 import {
     Grid,
-    Input
+    OutlinedInput
 } from '@material-ui/core';
 import React, {
     useEffect,
@@ -85,8 +85,9 @@ const PersonFinder = ({ darkMode }) => {
     return (
         <div className="chayns-dev__finder">
             <h3>Person Finder</h3>
-            <Input
+            <OutlinedInput
                 autoComplete="off"
+                color="secondary"
                 fullWidth
                 onChange={(e) => setQuery(e.target.value || '')}
                 placeholder="UserId, PersonId or Username"

@@ -1,4 +1,4 @@
-import { Input } from '@material-ui/core';
+import { OutlinedInput } from '@material-ui/core';
 import React, {
     memo,
     useEffect,
@@ -48,8 +48,9 @@ const LocationFinder = ({ darkMode }) => {
     return (
         <div className="chayns-dev__finder">
             <h3>Location Finder</h3>
-            <Input
+            <OutlinedInput
                 autoComplete="off"
+                color="secondary"
                 fullWidth
                 onChange={(e) => setQuery(e.target.value || '')}
                 placeholder="LocationId, SiteId or LocationName"

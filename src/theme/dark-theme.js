@@ -4,26 +4,19 @@ const darkTheme = createTheme({
     palette: {
         type: 'dark',
         primary: {
-            main: chayns.env.site.color
-        }
-    },
-    overrides: {
-        MuiInput: {
-            underline: {
-                '&:before': {
-                    borderBottom: `1px solid ${chayns.env.site.color}`
-                },
-                '&:after': {
-                    borderBottom: `1px solid ${chayns.env.site.color}`
-                },
-                '&:hover:not(.Mui-disabled):before': {
-                    borderBottom: `1px solid ${chayns.env.site.color}`
-                }
-            },
+            main: '#000000'
         },
+        secondary: {
+            main: chayns.env.site.color
+        },
+        text: {
+            primary: '#ffffff',
+        },
+    },
+    components: {
         MuiButton: {
             label: {
-                color: '#fff',
+                color: '#ffffff',
             }
         }
     }

@@ -142,6 +142,7 @@ export default class App extends PureComponent {
                 isVisible={showDock}
                 dockStyle={darkMode ? {
                     background: 'rgba(19,19,19,0.85)',
+                    backdropFilter: 'blur(5px)'
                 } : {
                     background: 'rgba(255,255,255,0.8)',
                 }}
