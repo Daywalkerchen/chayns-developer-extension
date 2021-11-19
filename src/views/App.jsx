@@ -1,5 +1,8 @@
 import { ThemeProvider } from '@material-ui/core/styles';
-import React, { PureComponent } from 'react';
+import React, {
+    useEffect,
+    useState
+} from 'react';
 import Dock from 'react-dock';
 import ActionBar from '../components/action-bar/ActionBar';
 import darkTheme from '../theme/dark-theme';
@@ -9,23 +12,30 @@ import Settings from './settings-view/Settings';
 
 import UserView from './user-view/UserView';
 
-export default class App extends PureComponent {
-    constructor(props) {
-        super();
+const useForceUpdate = () => {
+    const [value, setValue] = useState(0); // integer state
+    return () => setValue(value => value + 1); // update the state to force render
+}
 
-        this.state = {
-            showConfig: false,
-            showDock: window.chaynsDevSettings.defaultOpened,
-            darkMode: true,
-        };
-    }
+const App = () => {
+    const [showConfig, setShowConfig] = useState(false);
+    const [showDock, setShowDock] = useState(window.chaynsDevSettings.defaultOpened);
+    const [darkMode, setDarkMode] = useState(true);
 
-    componentDidMount = () => {
+    useEffect(() => {
+        (
+            () => componentDidMount()
+        )();
+    }, []);
+
+
+
+    const componentDidMount = () => {
         // Login Handling
         const { addAccessTokenChangeListener } = chayns;
         if (addAccessTokenChangeListener) {
             addAccessTokenChangeListener(() => {
-                this.forceUpdate();
+                () => useForceUpdate();
             });
         }
 
@@ -56,7 +66,7 @@ export default class App extends PureComponent {
                         if (nextTappId) {
                             chayns.env.site.tapp.id = nextTappId;
 
-                            this.forceUpdate();
+                            () => useForceUpdate();
                         }
                     }
                 },
@@ -64,22 +74,19 @@ export default class App extends PureComponent {
         }
 
         // Global-Func to toggle dock-visibility
-        window.chaynsDevToggle = this.toggleDockVisibility;
+        window.chaynsDevToggle = toggleDockVisibility;
     };
 
-    toggleDockVisibility = () => {
-        const { showDock } = this.state;
-        this.setState({ showDock: !showDock });
+    const toggleDockVisibility = () => {
+        setShowDock(!showDock);
     };
 
-    toggleConfigView = () => {
-        const { showConfig } = this.state;
-        this.setState({ showConfig: !showConfig });
+    const toggleConfigView = () => {
+        setShowConfig(!showConfig);
     };
 
-    toggleDarkMode = () => {
-        const { darkMode } = this.state;
-        this.setState({ darkMode: !darkMode });
+    const toggleDarkMode = () => {
+        setDarkMode(!darkMode);
 
         if (darkMode) {
             const body = document.body;
@@ -102,13 +109,12 @@ export default class App extends PureComponent {
             }
 
             const copyText = document.getElementsByClassName('copyText');
-            copyText.style.background = '#fff';
+            copyText.style.background = '#ffffff';
         }
     };
 
-    handleDockSize = (newSize) => {
-        clearTimeout(this.resizeTimeout);
-        this.resizeTimeout = setTimeout(() => {
+    const handleDockSize = (newSize) => {
+        const resizeTimeout = setTimeout(() => {
             document.dispatchEvent(new CustomEvent(
                 'UPDATE_SETTING',
                 {
@@ -117,52 +123,48 @@ export default class App extends PureComponent {
                 },
             ));
         }, 500);
+
+        clearTimeout(resizeTimeout);
     };
 
-    render = () => {
-        const {
-            showDock,
-            showConfig,
-            darkMode,
-        } = this.state;
+    if (darkMode) {
+        const body = document.body;
+        body.style.color = '#ffffff';
+    } else {
+        const body = document.body;
+        body.style.color = '#000000';
+    }
 
-        if (darkMode) {
-            const body = document.body;
-            body.style.color = '#ffffff';
-        } else {
-            const body = document.body;
-            body.style.color = '#000';
-        }
+    return (
+        <Dock
+            defaultOpen
+            dimMode="none"
+            position="right"
+            isVisible={showDock}
+            dockStyle={darkMode ? {
+                background: 'rgba(19,19,19,0.85)',
+                backdropFilter: 'blur(5px)'
+            } : {
+                background: 'rgba(255,255,255,0.8)',
+            }}
+            onSizeChange={handleDockSize}
+            defaultSize={window.chaynsDevSettings.dockSize}
+        >
+            <ThemeProvider theme={darkTheme}>
+                <ActionBar
+                    darkMode={darkMode}
+                    onDarkMode={toggleDarkMode}
+                    onHide={toggleDockVisibility}
+                    onConfigure={toggleConfigView}
+                />
+                <div className="chayns-dev-content-wrapper">
+                    {showConfig
+                        ? <Settings/>
+                        : <UserView darkMode={darkMode}/>}
+                </div>
+            </ThemeProvider>
+        </Dock>
+    );
+};
 
-        return (
-            <Dock
-                defaultOpen
-                dimMode="none"
-                position="right"
-                isVisible={showDock}
-                dockStyle={darkMode ? {
-                    background: 'rgba(19,19,19,0.85)',
-                    backdropFilter: 'blur(5px)'
-                } : {
-                    background: 'rgba(255,255,255,0.8)',
-                }}
-                onSizeChange={this.handleDockSize}
-                defaultSize={window.chaynsDevSettings.dockSize}
-            >
-                <ThemeProvider theme={darkTheme}>
-                    <ActionBar
-                        darkMode={darkMode}
-                        onDarkMode={this.toggleDarkMode}
-                        onHide={this.toggleDockVisibility}
-                        onConfigure={this.toggleConfigView}
-                    />
-                    <div className="chayns-dev-content-wrapper">
-                        {showConfig
-                            ? <Settings/>
-                            : <UserView darkMode={darkMode}/>}
-                    </div>
-                </ThemeProvider>
-            </Dock>
-        );
-    };
-}
+export default App;
