@@ -7,7 +7,7 @@
     "start": "webpack serve --config ./webpack/dev.babel.js",
     "build": "webpack --config ./webpack/prod.babel.js"
   },
-  "author": "Leon Fester",
+  "author": "Carlotta Uhlenbusch",
   "devDependencies": {
     "@babel/core": "^7.13.16",
     "@babel/plugin-transform-react-constant-elements": "^7.6.3",

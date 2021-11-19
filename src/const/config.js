@@ -25,6 +25,13 @@ export const GENERAL_CONFIG = [
     },
 ];
 
+export const DESIGN_CONFIG = [
+    {
+        key: 'isDarkMode',
+        desc: 'Dark Mode'
+    },
+];
+
 export const MODULE_CONFIG = [
     {
         key: 'showUserInfo',

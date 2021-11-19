@@ -15,20 +15,21 @@ import UserView from './user-view/UserView';
 const useForceUpdate = () => {
     const [value, setValue] = useState(0); // integer state
     return () => setValue(value => value + 1); // update the state to force render
-}
+};
 
 const App = () => {
     const [showConfig, setShowConfig] = useState(false);
     const [showDock, setShowDock] = useState(window.chaynsDevSettings.defaultOpened);
-    const [darkMode, setDarkMode] = useState(true);
+
+    const {
+        isDarkMode,
+    } = window.chaynsDevSettings;
 
     useEffect(() => {
         (
             () => componentDidMount()
         )();
     }, []);
-
-
 
     const componentDidMount = () => {
         // Login Handling
@@ -85,34 +86,6 @@ const App = () => {
         setShowConfig(!showConfig);
     };
 
-    const toggleDarkMode = () => {
-        setDarkMode(!darkMode);
-
-        if (darkMode) {
-            const body = document.body;
-            body.style.color = '#ffffff';
-
-            const inputs = document.getElementsByTagName('input');
-            for (let i = 0; i < inputs.length; i++) {
-                inputs[i].style.color = '#ffffff';
-            }
-
-            const copyText = document.getElementsByClassName('copyText');
-            copyText.style.background = '#000000';
-        } else {
-            const body = document.body;
-            body.style.color = '#000000';
-
-            const inputs = document.getElementsByTagName('input');
-            for (let i = 0; i < inputs.length; i++) {
-                inputs[i].style.color = '#000000';
-            }
-
-            const copyText = document.getElementsByClassName('copyText');
-            copyText.style.background = '#ffffff';
-        }
-    };
-
     const handleDockSize = (newSize) => {
         const resizeTimeout = setTimeout(() => {
             document.dispatchEvent(new CustomEvent(
@@ -127,7 +100,7 @@ const App = () => {
         clearTimeout(resizeTimeout);
     };
 
-    if (darkMode) {
+    if (isDarkMode) {
         const body = document.body;
         body.style.color = '#ffffff';
     } else {
@@ -141,7 +114,7 @@ const App = () => {
             dimMode="none"
             position="right"
             isVisible={showDock}
-            dockStyle={darkMode ? {
+            dockStyle={isDarkMode ? {
                 background: 'rgba(19,19,19,0.85)',
                 backdropFilter: 'blur(5px)'
             } : {
@@ -152,8 +125,6 @@ const App = () => {
         >
             <ThemeProvider theme={darkTheme}>
                 <ActionBar
-                    darkMode={darkMode}
-                    onDarkMode={toggleDarkMode}
                     onHide={toggleDockVisibility}
                     onConfigure={toggleConfigView}
                 />

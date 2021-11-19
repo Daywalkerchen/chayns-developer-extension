@@ -3,6 +3,7 @@ import React, { memo } from 'react';
 
 import ConfigToggle from '../../components/config-toggle/ConfigToggle';
 import {
+    DESIGN_CONFIG,
     GENERAL_CONFIG,
     MODULE_CONFIG
 } from '../../const/config';
@@ -23,6 +24,10 @@ const SettingsView = () => {
             <div className="chayns-dev__settings__general">
                 <h2>General</h2>
                 {renderConfig(GENERAL_CONFIG)}
+            </div>
+            <div className="chayns-dev__settings__design">
+                <h2>Design</h2>
+                {renderConfig(DESIGN_CONFIG)}
             </div>
             <div className="chayns-dev__settings__modules">
                 <h2>Modules</h2>

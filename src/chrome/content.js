@@ -29,6 +29,7 @@ const settingKeys = [
     { key: 'showTappBadges', _default: false },
     { key: 'autoOpenSiteConfig', _default: true },
     { key: 'dockSize', _default: 0.25 },
+    { key: 'isDarkMode', _default: true },
     { key: 'showUserInfo', _default: true },
     { key: 'showSiteInfo', _default: true },
     { key: 'showUtils', _default: false },
