@@ -32,7 +32,7 @@ const ConfigToggle = ({
                 <div className="cc__switch">
                     <Switch
                         checked={currentValue}
-                        color="primary"
+                        color="secondary"
                         id={inputId}
                         onChange={handleConfigChange}
                     />

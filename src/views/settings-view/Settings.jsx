@@ -78,7 +78,7 @@ export default () => {
             <div className="btn-wrapper btn-wrapper--padding">
                 <Button
                     variant="contained"
-                    color="primary"
+                    color="secondary"
                     size="small"
                     onClick={reload}
                 >

@@ -11,15 +11,15 @@ const ActionBar = ({
         <div className="chayns-dev__actionbar--left">
             <i
                 onClick={onHide}
-                className="fa ts-chayns chayns__color"
-                style={{ fontSize: '30px' }}
+                className="fa ts-chayns"
+                style={{
+                    fontSize: '30px',
+                    color: 'white'
+                }}
             />
         </div>
         <div className="chayns-dev__actionbar--right">
-            <FaSlidersH
-                onClick={onConfigure}
-                className="chayns__color"
-            />
+            <FaSlidersH onClick={onConfigure}/>
         </div>
     </div>
 );
