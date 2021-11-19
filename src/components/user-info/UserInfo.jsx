@@ -1,4 +1,4 @@
-import { Button } from '@material-ui/core';
+import Button from 'chayns-components/lib/react-chayns-button/component/Button';
 import React, { memo } from 'react';
 
 import CopyText from '../copy-text/CopyText';
@@ -21,13 +21,13 @@ const UserInfo = () => {
                     You are not logged in
                 </p>
                 <div className="btn-wrapper btn-wrapper--padding">
-                    <button
+                    <Button
                         type="button"
                         className="button"
                         onClick={() => chayns.login()}
                     >
                         Login
-                    </button>
+                    </Button>
                 </div>
             </div>
         );
