@@ -2,62 +2,12 @@ import Button from 'chayns-components/lib/react-chayns-button/component/Button';
 import React, { memo } from 'react';
 
 import ConfigToggle from '../../components/config-toggle/ConfigToggle';
+import {
+    GENERAL_CONFIG,
+    MODULE_CONFIG
+} from '../../const/config';
 
 const SettingsView = () => {
-    const generalConfig = [
-        {
-            key: 'defaultOpened',
-            desc: 'Extension Default Opened'
-        },
-        {
-            key: 'autoMute',
-            desc: 'Mute Site'
-        },
-        {
-            key: 'removeBGVideo',
-            desc: 'Remove Background Video'
-        },
-        {
-            key: 'removeMobileInfo',
-            desc: 'Remove Mobile Info'
-        },
-        {
-            key: 'showTappBadges',
-            desc: 'Attach TappIds'
-        },
-        {
-            key: 'autoOpenSiteConfig',
-            desc: 'DefaultOpened Site Config'
-        },
-    ];
-
-    const moduleConfig = [
-        {
-            key: 'showUserInfo',
-            desc: 'Your Info'
-        },
-        {
-            key: 'showSiteInfo',
-            desc: 'Site Info'
-        },
-        {
-            key: 'showShopInfo',
-            desc: 'Shop Info'
-        },
-        {
-            key: 'showUtils',
-            desc: 'Utils'
-        },
-        {
-            key: 'showFinder',
-            desc: 'Person Finder'
-        },
-        {
-            key: 'showLocationFinder',
-            desc: 'Location Finder'
-        },
-    ];
-
     const renderConfig = (config) => config.map(({
         desc,
         key
@@ -74,11 +24,11 @@ const SettingsView = () => {
         <div className="chayns-dev__settings">
             <div className="chayns-dev__settings__general">
                 <h2>General</h2>
-                {renderConfig(generalConfig)}
+                {renderConfig(GENERAL_CONFIG)}
             </div>
             <div className="chayns-dev__settings__modules">
                 <h2>Modules</h2>
-                {renderConfig(moduleConfig)}
+                {renderConfig(MODULE_CONFIG)}
             </div>
             <div className="btn-wrapper btn-wrapper--padding">
                 <Button onClick={reload}>
