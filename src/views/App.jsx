@@ -8,7 +8,7 @@ import ActionBar from '../components/action-bar/ActionBar';
 import darkTheme from '../theme/dark-theme';
 
 import './App.scss';
-import Settings from './settings-view/Settings';
+import SettingsView from './settings-view/SettingsView';
 
 import UserView from './user-view/UserView';
 
@@ -159,8 +159,8 @@ const App = () => {
                 />
                 <div className="chayns-dev-content-wrapper">
                     {showConfig
-                        ? <Settings/>
-                        : <UserView darkMode={darkMode}/>}
+                        ? <SettingsView/>
+                        : <UserView/>}
                 </div>
             </ThemeProvider>
         </Dock>

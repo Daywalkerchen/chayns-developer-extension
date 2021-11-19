@@ -1,9 +1,9 @@
-import { Button } from '@material-ui/core';
-import React from 'react';
+import Button from 'chayns-components/lib/react-chayns-button/component/Button';
+import React, { memo } from 'react';
 
 import ConfigToggle from '../../components/config-toggle/ConfigToggle';
 
-export default () => {
+const SettingsView = () => {
     const generalConfig = [
         {
             key: 'defaultOpened',
@@ -69,22 +69,24 @@ export default () => {
     ));
 
     const reload = () => window.location.reload();
+
     return (
         <div className="chayns-dev__settings">
-            <h3>General</h3>
-            {renderConfig(generalConfig)}
-            <h3>Modules</h3>
-            {renderConfig(moduleConfig)}
+            <div className="chayns-dev__settings__general">
+                <h2>General</h2>
+                {renderConfig(generalConfig)}
+            </div>
+            <div className="chayns-dev__settings__modules">
+                <h2>Modules</h2>
+                {renderConfig(moduleConfig)}
+            </div>
             <div className="btn-wrapper btn-wrapper--padding">
-                <Button
-                    variant="contained"
-                    color="secondary"
-                    size="small"
-                    onClick={reload}
-                >
+                <Button onClick={reload}>
                     Reload
                 </Button>
             </div>
         </div>
     );
 };
+
+export default memo(SettingsView);

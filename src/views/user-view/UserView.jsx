@@ -7,7 +7,7 @@ import SiteInfo from '../../components/site-info/SiteInfo';
 import UserInfo from '../../components/user-info/UserInfo';
 import Utils from '../../components/utils/Utils';
 
-const UserView = ({ darkMode }) => {
+const UserView = () => {
     const {
         showFinder,
         showLocationFinder,
@@ -23,8 +23,8 @@ const UserView = ({ darkMode }) => {
             {showSiteInfo && <SiteInfo/>}
             {showShopInfo && <ShopInfo/>}
             {showUtils && <Utils/>}
-            {showFinder && <PersonFinder darkMode={darkMode}/>}
-            {showLocationFinder && <LocationFinder darkMode={darkMode}/>}
+            {showFinder && <PersonFinder/>}
+            {showLocationFinder && <LocationFinder/>}
         </div>
     );
 };

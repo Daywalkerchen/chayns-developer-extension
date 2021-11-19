@@ -16,7 +16,7 @@ import {
 } from './getLocationInfos';
 import './location-finder.scss';
 
-const LocationFinder = ({ darkMode }) => {
+const LocationFinder = () => {
     const [query, setQuery] = useState('');
     const [queryResult, setQueryResult] = useState([]);
 

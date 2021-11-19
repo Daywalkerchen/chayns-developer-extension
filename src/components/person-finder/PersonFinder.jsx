@@ -20,7 +20,7 @@ const QUERY_TYPES = {
 const regUserId = '^[0-9]+$';
 const regPersonId = '^[0-9]{3}-[0-9]{5}$';
 
-const PersonFinder = ({ darkMode }) => {
+const PersonFinder = () => {
     const timeoutId = useRef(0);
 
     const [query, setQuery] = useState('');
