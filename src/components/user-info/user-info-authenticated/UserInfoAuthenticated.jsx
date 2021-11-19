@@ -5,6 +5,7 @@ import CopyText from '../../copy-text/CopyText';
 const UserInfoAuthenticated = () => {
     const {
         id,
+        name,
         personId,
         tobitAccessToken,
     } = chayns.env.user;
@@ -14,6 +15,14 @@ const UserInfoAuthenticated = () => {
             key={id}
             className="chayns-dev__userInfo"
         >
+            <div className="flex-split">
+                <div className="flex-split__left">
+                    <p>Name</p>
+                </div>
+                <div className="flex-split__right">
+                    <CopyText content={name}/>
+                </div>
+            </div>
             <div className="flex-split">
                 <div className="flex-split__left">
                     <p>UserId</p>

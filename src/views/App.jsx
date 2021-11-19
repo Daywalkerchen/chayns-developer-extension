@@ -111,17 +111,18 @@ const App = () => {
     return (
         <Dock
             defaultOpen
-            dimMode="none"
-            position="right"
-            isVisible={showDock}
+            defaultSize={window.chaynsDevSettings.dockSize}
             dockStyle={isDarkMode ? {
                 background: 'rgba(19,19,19,0.85)',
                 backdropFilter: 'blur(5px)'
             } : {
                 background: 'rgba(255,255,255,0.8)',
             }}
+            dimMode="none"
+            isVisible={showDock}
             onSizeChange={handleDockSize}
-            defaultSize={window.chaynsDevSettings.dockSize}
+            position="right"
+
         >
             <ThemeProvider theme={darkTheme}>
                 <ActionBar
