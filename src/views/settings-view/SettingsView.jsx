@@ -10,15 +10,13 @@ import {
 const SettingsView = () => {
     const renderConfig = (config) => config.map(({
         desc,
-        key
+        key,
     }) => (
         <ConfigToggle
             configDesc={desc}
             configKey={key}
         />
     ));
-
-    const reload = () => window.location.reload();
 
     return (
         <div className="chayns-dev__settings">
@@ -31,7 +29,7 @@ const SettingsView = () => {
                 {renderConfig(MODULE_CONFIG)}
             </div>
             <div className="btn-wrapper btn-wrapper--padding">
-                <Button onClick={reload}>
+                <Button onClick={() => window.location.reload()}>
                     Reload
                 </Button>
             </div>

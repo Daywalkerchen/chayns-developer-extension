@@ -1,79 +1,16 @@
-import Button from 'chayns-components/lib/react-chayns-button/component/Button';
 import React, { memo } from 'react';
-
-import CopyText from '../copy-text/CopyText';
+import UserInfoAuthenticated from './user-info-authenticated/UserInfoAuthenticated';
+import UserInfoNonAuthenticated from './user-info-non-authenticated/UserInfoNonAuthenticated';
 
 const UserInfo = () => {
-    const {
-        id,
-        isAuthenticated,
-        personId,
-        tobitAccessToken,
-    } = chayns.env.user;
-
-    if (!isAuthenticated) {
+    if (!chayns.env.user.isAuthenticated) {
         return (
-            <div
-                key={id}
-                className="chayns-dev__userInfo"
-            >
-                <p className="center-message">
-                    You are not logged in
-                </p>
-                <div className="btn-wrapper btn-wrapper--padding">
-                    <Button
-                        type="button"
-                        className="button"
-                        onClick={() => chayns.login()}
-                    >
-                        Login
-                    </Button>
-                </div>
-            </div>
+            <UserInfoNonAuthenticated/>
         );
     }
 
-
     return (
-        <div
-            key={id}
-            className="chayns-dev__userInfo"
-        >
-            <div className="flex-split">
-                <div className="flex-split__left">
-                    <p>UserId</p>
-                </div>
-                <div className="flex-split__right">
-                    <CopyText content={id}/>
-                </div>
-            </div>
-            <div className="flex-split">
-                <div className="flex-split__left">
-                    <p>PersonId</p>
-                </div>
-                <div className="flex-split__right">
-                    <CopyText content={personId}/>
-                </div>
-            </div>
-            <div className="flex-split">
-                <div className="flex-split__left">
-                    <p>AccessToken</p>
-                </div>
-                <div className="flex-split__right">
-                    <CopyText content={tobitAccessToken}/>
-                </div>
-            </div>
-            <div className="btn-wrapper btn-wrapper--padding">
-                <Button
-                    variant="contained"
-                    color="secondary"
-                    size="small"
-                    onClick={() => chayns.logout()}
-                >
-                    Logout
-                </Button>
-            </div>
-        </div>
+        <UserInfoAuthenticated/>
     );
 };
 
