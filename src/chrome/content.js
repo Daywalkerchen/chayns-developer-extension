@@ -23,18 +23,18 @@ const injectFunc = (fn) => {
 // All configurable plugin-options
 const settingKeys = [
     { key: 'defaultOpened', _default: false },
-    { key: 'autoMute', _default: true },
-    { key: 'removeBGVideo', _default: true },
+    { key: 'autoMute', _default: false },
+    { key: 'removeBGVideo', _default: false },
+    { key: 'removeMobileInfo', _default: false },
+    { key: 'showTappBadges', _default: false },
+    { key: 'autoOpenSiteConfig', _default: true },
     { key: 'dockSize', _default: 0.25 },
-    { key: 'showTappBadges', _default: true },
     { key: 'showUserInfo', _default: true },
     { key: 'showSiteInfo', _default: true },
     { key: 'showUtils', _default: false },
     { key: 'showShopInfo', _default: false },
     { key: 'showFinder', _default: true },
     { key: 'showLocationFinder', _default: true },
-    { key: 'removeMobileInfo', _default: true },
-    { key: 'autoOpenSiteConfig', _default: true },
 ];
 
 const initializePlugin = () => {
