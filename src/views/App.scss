@@ -1,22 +1,29 @@
 .chayns-dev-injection-root {
+  color: unset;
+
   .light-mode {
-    color: #000000
+    color: #000000 !important;
+
+    h2 {
+      color: #000000 !important;
+    }
+
+    h3 {
+      color: #000000 !important;
+    }
   }
 
   .dark-mode {
-    color: #ffffff
-  }
+    color: #ffffff !important;
 
-  //h2 {
-  //  color: #ffffff;
-  //  font-size: 1.2rem;
-  //  margin-top: 10px;
-  //  overflow: hidden;
-  //  padding: 0 5px;
-  //  text-align: center;
-  //  user-select: none;
-  //  white-space: nowrap;
-  //}
+    h2 {
+      color: #ffffff !important;
+    }
+
+    h3 {
+      color: #ffffff !important;
+    }
+  }
 
   b {
     font-family: inherit;

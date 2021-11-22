@@ -1,4 +1,5 @@
 import React, {
+    memo,
     useEffect,
     useState,
 } from 'react';
@@ -6,7 +7,7 @@ import CopyText from '../copy-text/CopyText';
 
 import './shop-info.scss';
 
-export default () => {
+const ShopInfo = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [shopData, setShopData] = useState(null);
 
@@ -42,7 +43,7 @@ export default () => {
             <h3>Shop Info</h3>
             {/* eslint-disable-next-line no-nested-ternary */}
             {isLoading ? <p className="chaynsDev__shopInfo--mediumEmphasis">Loading...</p> : (
-                shopData ? (
+                shopData && shopData.branchId && shopData.shopToken ? (
                     <>
                         <div className="flex-split">
                             <div className="flex-split__left">
@@ -66,3 +67,5 @@ export default () => {
         </div>
     );
 };
+
+export default memo(ShopInfo);

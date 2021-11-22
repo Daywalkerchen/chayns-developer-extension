@@ -21,9 +21,7 @@ const App = () => {
     const [showConfig, setShowConfig] = useState(false);
     const [showDock, setShowDock] = useState(window.chaynsDevSettings.defaultOpened);
 
-    const {
-        isDarkMode,
-    } = window.chaynsDevSettings;
+    const { isDarkMode } = window.chaynsDevSettings;
 
     useEffect(() => {
         (
@@ -103,9 +101,23 @@ const App = () => {
     if (isDarkMode) {
         const body = document.body;
         body.style.color = '#ffffff';
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+
+        const elements = document.getElementsByTagName('h2');
+
+        // const element = document.getElementsByClassName('chayns-dev-injection-root')[0];
+        // element.classList.remove('light-mode');
+        // element.classList.add('dark-mode');
     } else {
         const body = document.body;
         body.style.color = '#000000';
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+
+        // const element = document.getElementsByClassName('chayns-dev-injection-root')[0];
+        // element.classList.remove('dark-mode');
+        // element.classList.add('light-mode');
     }
 
     return (
@@ -122,17 +134,18 @@ const App = () => {
             isVisible={showDock}
             onSizeChange={handleDockSize}
             position="right"
-
         >
             <ThemeProvider theme={darkTheme}>
-                <ActionBar
-                    onHide={toggleDockVisibility}
-                    onConfigure={toggleConfigView}
-                />
-                <div className="chayns-dev-content-wrapper">
-                    {showConfig
-                        ? <SettingsView/>
-                        : <UserView/>}
+                <div className={isDarkMode ? 'dark-mode' : 'light-mode'}>
+                    <ActionBar
+                        onHide={toggleDockVisibility}
+                        onConfigure={toggleConfigView}
+                    />
+                    <div className="chayns-dev-content-wrapper">
+                        {showConfig
+                            ? <SettingsView/>
+                            : <UserView/>}
+                    </div>
                 </div>
             </ThemeProvider>
         </Dock>
