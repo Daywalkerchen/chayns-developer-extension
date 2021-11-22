@@ -1,7 +1,4 @@
-import {
-    Grid,
-    OutlinedInput
-} from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import React, {
     useEffect,
     useRef,
@@ -9,7 +6,7 @@ import React, {
 } from 'react';
 import CopyText from '../copy-text/CopyText';
 
-import './person-finder.scss';
+import './personFinder.scss';
 
 const QUERY_TYPES = {
     USER_ID: 'UserId',

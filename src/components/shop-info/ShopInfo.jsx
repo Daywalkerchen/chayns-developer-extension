@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 import CopyText from '../copy-text/CopyText';
 
-import './shop-info.scss';
+import './shopInfo.scss';
 
 const ShopInfo = () => {
     const [isLoading, setIsLoading] = useState(true);

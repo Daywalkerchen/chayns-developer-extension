@@ -6,7 +6,7 @@ import React, {
 
 import copyToClipboard from '../../utils/copyToClipboard';
 
-import './copy-text.scss';
+import './copyText.scss';
 
 const CopyText = ({ content }) => {
     const stringContent = `${content || ''}`.trim();

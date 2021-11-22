@@ -4,7 +4,7 @@ import React, {
     useState
 } from 'react';
 
-import './config.toggle.scss';
+import './configToggle.scss';
 
 const ConfigToggle = ({
     configDesc,

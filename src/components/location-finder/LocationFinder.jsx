@@ -14,7 +14,7 @@ import {
     getLocationInfosByName,
     getLocationInfosBySiteId,
 } from './getLocationInfos';
-import './location-finder.scss';
+import './locationFinder.scss';
 
 const LocationFinder = () => {
     const [query, setQuery] = useState('');
