@@ -9,8 +9,14 @@ const UserInfo = () => {
         );
     }
 
+    if (chayns.env.user.isAuthenticated) {
+        return (
+            <UserInfoAuthenticated/>
+        );
+    }
+
     return (
-        <UserInfoAuthenticated/>
+        <p>Loading...</p>
     );
 };
 

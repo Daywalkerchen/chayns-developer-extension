@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { FaSlidersH } from 'react-icons/all';
 
-import './action.bar.scss';
+import './actionBar.scss';
 
 const ActionBar = ({
     onConfigure,
@@ -15,13 +15,7 @@ const ActionBar = ({
                 <i
                     onClick={onHide}
                     className="fa ts-chayns"
-                    style={isDarkMode ? {
-                        fontSize: '30px',
-                        color: 'white'
-                    } : {
-                        fontSize: '30px',
-                        color: 'black'
-                    }}
+                    style={isDarkMode ? { color: 'white' } : { color: 'black' }}
                 />
             </div>
             <div className="chayns-dev__actionbar--right">
